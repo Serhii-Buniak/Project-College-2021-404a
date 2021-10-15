@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyProject.Models
 {
-    public class Accessories
+    public class Accessories : Product
     {
         public double Weight { get; set; }
         public string Material { get; set; }
