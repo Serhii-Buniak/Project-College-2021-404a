@@ -2,20 +2,25 @@
     padding: 0;
     margin: 0;
     font-family: "Raleway", sans-serif;
-
 }
-a:focus,a:active{outline: none;}
-a,a:visited{text-decoration: none;}
+a:focus,
+a:active {
+    outline: none;
+}
+a,
+a:visited {
+    text-decoration: none;
+}
 
 body {
     background-color: #eeeeee;
 }
-.content{
+.content {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/*header start -----------------------------*//*header start -----------------------------*//*header start -----------------------------*//*header start -----------------------------*//*header start -----------------------------*/
+/*header start -----------------------------*/ /*header start -----------------------------*/ /*header start -----------------------------*/ /*header start -----------------------------*/ /*header start -----------------------------*/
 .top_line {
     background-color: #3f6e89;
 
@@ -57,7 +62,6 @@ body {
     /* width: 15%; Що це за хрень?>*/
 }
 .sr_l img {
-
     width: 100%;
 }
 .sr_r {
@@ -66,17 +70,14 @@ body {
     padding-top: 25px;
 }
 .sr_m {
-   
     width: 50%;
     max-height: 100px;
     float: left;
     margin-left: 16%;
     margin-top: 30px;
     box-sizing: border-box;
-    
 }
 .sr_m input {
-    
     max-height: 5px;
     width: 100%;
     background-color: #eeeeee;
@@ -106,7 +107,7 @@ body {
     margin-left: 5%;
     margin-right: 3%;
 } */
-.top_menu{  
+.top_menu {
     display: flex;
 }
 /* .top_menu li {
@@ -119,14 +120,13 @@ body {
     color: #eeeeee;
     box-sizing: border-box;
 }
-.nav-element{
+.nav-element {
     display: block;
     text-decoration: none;
     color: #000000;
     box-sizing: border-box;
     height: 40px;
     text-align: center;
-   
     padding-top: 10px;
     flex: auto;
 }
@@ -147,8 +147,7 @@ body {
     margin-top: -14px;
 }
 
-/*header stop -----------------------------*//*header stop -----------------------------*//*header stop -----------------------------*//*header stop -----------------------------*//*header stop -----------------------------*/
-
+/*header stop -----------------------------*/ /*header stop -----------------------------*/ /*header stop -----------------------------*/ /*header stop -----------------------------*/ /*header stop -----------------------------*/
 
 /*footer start*/
 
@@ -156,7 +155,6 @@ body {
     clear: both;
 }
 .footer {
- 
     background-color: #3f6e89;
     min-height: 20px;
 }
@@ -168,4 +166,4 @@ body {
     float: left;
 }
 
-/*footer stop -----------------*//*footer stop -----------------*//*footer stop -----------------*//*footer stop -----------------*//*footer stop -----------------*//*footer stop -----------------*//*footer stop -----------------*/
+/*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/
