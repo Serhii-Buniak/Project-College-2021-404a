@@ -157,6 +157,8 @@ body {
 .footer {
     background-color: #3f6e89;
     min-height: 20px;
+    
+    
 }
 .footer p {
     color: #eeeeee;
@@ -164,6 +166,7 @@ body {
     margin: auto;
     width: 80%;
     float: left;
+   
 }
 
 /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/
