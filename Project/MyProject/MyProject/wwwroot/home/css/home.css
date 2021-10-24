@@ -83,7 +83,6 @@
 .home__main3_l {
     margin-top: -2px;
 
-    
     width: 110%;
 }
 .home__main3_border {
@@ -141,46 +140,42 @@
     font-weight: 500;
     float: right;
 }
-.hr-line {margin: 200px 0;
+.hr-line {
+    margin: 200px 0;
     margin-right: 50%;
     margin-left: -170%;
-      width: 290%;
-   
-    
-  border-top: 2px solid rgb(59, 87, 131);    
+    width: 290%;
 
+    border-top: 2px solid rgb(59, 87, 131);
 }
 
-    .figure {
-        width: 50%; /* Ширина */
-        float: none; /* Выстраиваем элементы по горизонтали */
-        margin: 0 0 0 25%; /* Отступ слева */
-        
-
-       }
-       .div{
-
-       
-       width: 900px; /* Ширина слоя */
-       margin: 9px; /* Значение отступов */
-       padding: 50px; /* Поля вокруг текста */
-       background: rgb(226, 224, 216); /* Цвет фона */
-       
-       
-       }
-       .brend{
-        float: right; /* Выравнивание по правому краю */
+.figure {
+    width: 50%; /* Ширина */
+    float: none; /* Выстраиваем элементы по горизонтали */
+    margin: 0 0 0 25%; /* Отступ слева */
+}
+.div {
+    width: 100%; /* Ширина слоя */
+    margin: 9px; /* Значение отступов */
+    padding: 50px; /* Поля вокруг текста */
+    background: rgb(226, 224, 216); /* Цвет фона */
+    margin-bottom: 150px;
+}
+.div img{
+    width: 100%;
+}
+.brend {
+    float: right; /* Выравнивание по правому краю */
     margin: 0 0 2px 5px;
-       }
-       .home__main2{
+}
+.home__main2 {
     margin-top: 20px;
 }
-.home__main2 span{
-font-size: large;
-margin-top:-49px;
-display: block;
+.home__main2 span {
+    font-size: large;
+    margin-top: -49px;
+    display: block;
 }
-
 
 .home__main2_rr {
     width: 49%;
@@ -191,4 +186,4 @@ display: block;
     font-weight: 999;
     margin-top: -270px;
     display: block;
-}  
+}
