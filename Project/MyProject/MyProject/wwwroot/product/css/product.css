@@ -68,6 +68,9 @@
     padding-top: 10px;
     box-sizing: border-box;
 }
+.product__main2_r3 p{
+    margin-bottom: 10px;
+}
 .product__main3 {
     margin-top: 30px;
     width: 70%;
@@ -138,4 +141,8 @@
     font-size: large;
     font-weight: 500;
     float: right;
+}
+
+.product__property{
+    text-transform: uppercase;
 }
