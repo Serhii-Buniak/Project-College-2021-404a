@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using MyProject.Models;
 using System;
 
-namespace MyProject.Models
+namespace MyProject.Models.Entities
 {
 
     public static class SeedData
