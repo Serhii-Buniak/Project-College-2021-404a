@@ -229,6 +229,7 @@
     float: left;
         margin-bottom: 20px;
     padding: 10px;
+    
 }
 .home__catalog2_box span{
     font-size: x-large;
@@ -249,7 +250,11 @@
 }
 .home__subcategory{
     border: 5px solid #cfd0d1;
+    opacity: 0.8;
    
+}
+.home__subcategory:hover{
+    opacity: 1;
 }
 .home__subcategory-selected{
     border: 5px solid #3f6e89;
