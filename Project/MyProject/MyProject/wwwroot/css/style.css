@@ -94,10 +94,10 @@ body {
 
 .d1 input {
  
-  border: 2px solid #366a8a;
-  border-radius: 90px;
-  outline: none;
- border-width: 3px;
+  border: 2px solid #8aafc4;
+  border-radius: 9px;
+  outline: 3.0px solid rgb(95, 122, 145);
+ border-width: 5.15px;
   
  
 }
