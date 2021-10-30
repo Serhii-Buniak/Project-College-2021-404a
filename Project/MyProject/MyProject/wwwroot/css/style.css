@@ -91,6 +91,18 @@ body {
     width: 30%;
 }
 
+
+.d1 input {
+ 
+  border: 2px solid #366a8a;
+  border-radius: 90px;
+  outline: none;
+ border-width: 4px;
+  
+ 
+}
+
+
 .menu_left {
     width: 15%;
     height: 30px;
