@@ -182,3 +182,27 @@ body {
 }
 
 /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/
+datalist {
+    position: absolute;
+    border: 0 none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+datalist option {
+    font-size: 1em;
+    padding: 0.7em 1.5em;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: 1px dashed rgb(195, 195, 195);
+    
+}
+
+/* option active styles */
+datalist option:hover,
+datalist option:focus {
+    color: #fff;
+    background-color: #3f6e89;
+    outline: 0 none;
+}
