@@ -26,7 +26,7 @@ namespace MyProject
             services.AddDbContext<StoreDbContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<IReadOnlyRepository <Product>, EFProductRepository>();
+            services.AddTransient<IReadOnlyProductRepository <Product>, EFProductRepository>();
             services.AddTransient<IFoodRepository, EFFoodRepository>();
             services.AddTransient<IAnimalRepository, EFAnimalRepository>();
             services.AddTransient<IAccessoryRepository, EFAccessoryRepository>();

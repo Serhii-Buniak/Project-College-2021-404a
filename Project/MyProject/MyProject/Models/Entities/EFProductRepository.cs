@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyProject.Models.Entities
 {
-    public class EFProductRepository : IReadOnlyRepository<Product>
+    public class EFProductRepository : IReadOnlyProductRepository<Product>
     {
 
         private readonly StoreDbContext context;

@@ -12,17 +12,15 @@ namespace MyProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IReadOnlyRepository<Product> _repository;
+        private readonly IReadOnlyProductRepository<Product> _repository;
 
-        public HomeController(IReadOnlyRepository<Product> repository)
+        public HomeController(IReadOnlyProductRepository<Product> repository)
         {
             _repository = repository;
         }
         public IActionResult Index()
         {
-            var a = _repository.Items.First();
-            var properties = a.GetType().GetProperties();
-            return View();
+            return View(_repository.Items.First());
         }
 
     }

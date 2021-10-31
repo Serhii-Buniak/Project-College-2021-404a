@@ -15,5 +15,6 @@ namespace MyProject.Models
         public DbSet<Food> Foods { get; set; }
         public DbSet<Animal> Animals { get; set; }
         public DbSet<Accessory> Accessories { get; set; }
+        
     }
 }
