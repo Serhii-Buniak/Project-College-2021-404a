@@ -38,7 +38,7 @@
                     <span>Вхід</span>
                 </div>
                 <a class="nav-element" href="">Реєстрація</a>
-               
+
             </div>
         </div>
     </div>
@@ -56,27 +56,38 @@
                 </div>
             </div>
             <div class="line"></div>
-            <div class="allert">
+            <div class="input-validation-error">
                 <p>Не правильний логін або пароль</p>
             </div>
-            <form >
-                            <div class="login_box">
-                
-                    
-                <input placeholder="Телефон" type="text" name="Username"class="tel" required=" "  pattern="..................">
-                <input placeholder="Пароль" type="text" name="Password" required=" "required minlength="6">
-                
-            </div>
-            <div class="login_action">
-                <button>ВХІД</button>
-                <p>У вас немає акаунта? <a href="">Зареєструватися</a></p>
-                <p>Забули пароль? <a href="">Відновити</a></p>
-                
-                <p><a href=""><img  src="./img/google.png" alt=""></a>  <a href=""><img src="./img/facebook.png" alt=""></a></p>
-                
-            </div>
-        </form>
-        <div class="clear"></div>
+            <form>
+                <div class="login_box">
+
+                    <div>
+                        <input placeholder="Телефон" type="text" name="Username" class="tel" pattern="..................">
+                        <div class="input-validation-error-el">
+                            <p>Таке Iм'я вже існує</p>
+                        </div>
+                        
+                    </div>
+                   <div>
+                    <input placeholder="Пароль" type="text" name="Password">
+                    <div class="input-validation-error-el">
+                        <p>Таке Iм'я вже існує</p>
+                    </div>
+                   </div>
+
+
+                </div>
+                <div class="login_action">
+                    <button>ВХІД</button>
+                    <p>У вас немає акаунта? <a href="">Зареєструватися</a></p>
+                    <p>Забули пароль? <a href="">Відновити</a></p>
+
+                    <p><a href=""><img src="./img/google.png" alt=""></a> <a href=""><img src="./img/facebook.png" alt=""></a></p>
+
+                </div>
+            </form>
+            <div class="clear"></div>
     </main>
 
     <div class="footer">
@@ -100,7 +111,7 @@
 
 
 
-    
+
 </body>
 
 </html>

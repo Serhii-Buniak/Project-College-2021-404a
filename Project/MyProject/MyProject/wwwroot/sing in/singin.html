@@ -38,7 +38,7 @@
                     <span>Реєстрація</span>
                 </div>
                 <a class="nav-element" href="">Вхід</a>
-               
+
             </div>
         </div>
     </div>
@@ -56,31 +56,43 @@
                 </div>
             </div>
             <div class="line"></div>
-            <form >
-                <div class="allert">
+            <form>
+                <div class="input-validation-error">
                     <p>Таке Iм'я вже існує</p>
                 </div>
-            <div class="login_box">
-                
-                <input placeholder="Iм'я" type="text" name="Password" required=" "required minlength="6">   
-                <input placeholder="Телефон" type="text" name="Username"class="tel" required=" "  pattern="..................">
-                <input placeholder="E-mail" type="text" name="E-mail" required=" "  pattern=".*@.*">
-                <input id="inp1"  placeholder="Пароль" type="text" name="Password" required=" "required minlength="6">
-                <input id="inp2" placeholder="Підтвердити пароль" type="text" name="Password" required=" "required minlength="6">
-               
-                <div style="text-align: center; color: red;" id="res"></div>
-                
-            </div>
-            <div class="login_action">
-                <button id="b" >Реєстрація</button>
-                <p>У вас немає акаунта? <a href="">Зареєструватися</a></p>
-                <p>Забули пароль? <a href="">Відновити</a></p>
-                <p><a href=""><img  src="./img/google.png" alt=""></a>  <a href=""><img src="./img/facebook.png" alt=""></a></p>
-               
-                
-            </div>
-        </form>
-        <div class="clear"></div>
+                <div class="login_box">
+
+                    <input placeholder="Iм'я" type="text" name="Password" required=" " required minlength="6">
+                    <div>
+                        <div class="input-validation-error-el">
+                            <p>Таке Iм'я вже існує</p>
+                        </div>
+                        <input placeholder="Телефон" type="text" name="Username" class="tel" pattern="..................">
+                    </div>
+                    
+                    <div>
+                        <div class="input-validation-error-el">
+                            <p>Таке Iм'я вже існує</p>
+                        </div>
+                        <input placeholder="E-mail" type="text" name="E-mail">
+                    </div>
+                   
+                    <input id="inp1" placeholder="Пароль" type="text" name="Password">
+                    <input id="inp2" placeholder="Підтвердити пароль" type="text" name="Password">
+
+                  
+
+                </div>
+                <div class="login_action">
+                    <button id="b">Реєстрація</button>
+                    <p>У вас немає акаунта? <a href="">Зареєструватися</a></p>
+                    <p>Забули пароль? <a href="">Відновити</a></p>
+                    <p><a href=""><img src="./img/google.png" alt=""></a> <a href=""><img src="./img/facebook.png" alt=""></a></p>
+
+
+                </div>
+            </form>
+            <div class="clear"></div>
     </main>
 
     <div class="footer">
@@ -104,7 +116,7 @@
 
 
 
-    
+
 </body>
 
 </html>
