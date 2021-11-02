@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/home/css/home.css">
-    <title>Home</title>
+    <script src="/js/home.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js" defer></script>
+    <title>Home1</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="header">
+    < <div class="header">
         <div class="top">
             <div class="top_line">
                 <div class="top_tw"> <a href="https://twitter.com/?lang=uk"><img src="/img/icons/twitter.png" alt="twitter"></a></div>
@@ -19,13 +21,34 @@
                 <span>(050) 022 4004</span>
             </div>
         </div>
-        
+        <div class="serhii_skin_webky"></div>
         <div class="all">
             <div class="top_sr">
                 <div class="sr_l"><img src="/img/icons/logo.svg" alt=""></div>
                 <div class="sr_m">
-                    <input placeholder="Шукати продукт або бренд" type="text" name="Username" required="">
+
+
+                    <div class="d1">
+
+                        <input list="poshuk" placeholder="Шукати продукт або бренд" 𓃦 id="poisk" name="poisk" size="50" />
+              
+
+                        <datalist id="poshuk">
+                            <option>jdkdk</option>
+                            <option>кіт</option>
+                            <option>улюбленець</option>
+                            <option>sheba fine</option>
+                            <option>зоотовари</option>
+                            <option>корм для котів</option>
+                            <option>шеба</option>
+                            <option>корми</option>
+                            <option>sheba lux</option>
+                        </datalist>
+                        
+                    </div>
                 </div>
+
+
                 <div class="sr_r">
                     <a href=""><img src="/img/icons/like.png" alt="favourite"></a>
                     <a href=""><img src="/img/icons/profile.png" alt="me"></a>
@@ -81,44 +104,79 @@
                 </div>
             </div>
         </div>
+
+        <div class="clear"></div>
         <div class="home__catalog">
 
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            Тут робиш товари
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <div class="home__catalog_title">
+                <span>Оберіть підкатегорію</span>
+            </div>
+            <div class="home__catalog_box">
+                <span>улюбленці </span>
+                <a href=""><img src="./img/box1.png" alt=""></a>
+            </div>
+            <div class="home__catalog_box">
+                <span>їжа</span>
+                <a href=""><img src="./img/box2.png" alt=""></a>
+            </div>
+            <div class="home__catalog_box">
+                <span>аксесуари</span>
+                <a href=""><img src="./img/box3.png" alt=""></a>
+            </div>
 
         </div>
+
+        <div class="home__catalog2">
+
+            <div class="clear"></div>
+
+            <div class="home__catalog2_box">
+                <span>улюбленці </span>
+                <div class="home__subcategory">
+                    <a class="home__subcategory-a" href=""><img src="./img/box2_1.png" alt=""></a>
+                </div>
+            </div>
+            <div class="home__catalog2_box">
+                <span>їжа</span>
+                <div class="home__subcategory "><a class="home__subcategory-a" href=""><img src="./img/box2_2.png" alt=""></a></div>
+            </div>
+            <div class="home__catalog2_box">
+                <span>аксесуари</span>
+                <div class="home__subcategory"><a class="home__subcategory-a" href=""><img src="./img/box2_3.png" alt=""></a></div>
+            </div>
+            <div class="clear"></div>
+            <div class="home_catalog2_menu">
+                <ul>
+                    <li><a href="#">Коти</a></li>
+                    <li><a href="">Коти</a></li>
+                    <li><a href="">Коти</a></li>
+                    <li><a href="">Коти</a></li>
+                    <li><a href="">Коти</a></li>
+                </ul>
+            </div>
+            <div class="home_catalog2_menu">
+                <ul>
+                    <li><a href="">корм для котів</a></li>
+                    <li><a href="">корм для котів</a></li>
+                    <li><a href="">корм для котів</a></li>
+                    <li><a href="">корм для котів</a></li>
+                    <li><a href="">корм для котів</a></li>
+                </ul>
+            </div>
+            <div class="home_catalog2_menu">
+                <ul>
+                    <li><a href="">Клітки</a></li>
+                    <li><a href="">Клітки</a></li>
+                    <li><a href="">Клітки</a></li>
+                    <li><a href="">Клітки</a></li>
+                    <li><a href="">Клітки</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+
+        <div class="clear"></div>
         <div class="home__bottom">
 
             <div class="div">
@@ -158,6 +216,7 @@
             <span>(050) 022 4004</span>
         </div>
     </div>
+
 </body>
 
 </html>

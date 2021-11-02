@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace MyProject.Models.Entities
 {
-    public interface IReadOnlyRepository<T>
+    public interface IReadOnlyProductRepository<T>
     {
         IQueryable<T> Items { get; }
     }
-    public interface IFoodRepository : IReadOnlyRepository<Food>
+    public interface IFoodRepository : IReadOnlyProductRepository<Food>
     {
         
     }
-    public interface IAnimalRepository : IReadOnlyRepository<Animal>
+    public interface IAnimalRepository : IReadOnlyProductRepository<Animal>
     {
 
     }
-    public interface IAccessoryRepository : IReadOnlyRepository<Accessory>
+    public interface IAccessoryRepository : IReadOnlyProductRepository<Accessory>
     {
 
     }

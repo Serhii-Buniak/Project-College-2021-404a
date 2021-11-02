@@ -165,42 +165,66 @@
 </div>
 <div class="clear"></div>
 <div class="search_slider">
-<span>Недавно переглянуті товари</span>
+<span>Недавно переглянуті товариші</span>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="carousel owl-carousel">
+            <div class="search_slider_box">
+                <img src="./img/item3.png" alt="">
+                <p>Sheba Fine Flakes</p>
+                   <span>13,70 ₴</span>
+                </div>
+                <div class="search_slider_box">
+                    <img src="./img/item.png" alt="">
+                    <p>Sheba Fine Flakes</p>
+                       <span>13,70 ₴</span>
+                    </div>
+                    <div class="search_slider_box">
+                        <img src="./img/item2.png" alt="">
+                        <p>Sheba Fine Flakes</p>
+                           <span>13,70 ₴</span>
+                        </div>
+                        <div class="search_slider_box">
+                            <img src="./img/item4.png" alt="">
+                            <p>Sheba Fine Flakes</p>
+                               <span>13,70 ₴</span>
+                            </div>
+            
+            </div>
+         </div>
+      </div>
+      <script>
+         $(".carousel").owlCarousel({
+           margin: 20,
+           loop: true,
+           autoplay: true,
+           autoplayTimeout: 3000,
+           autoplayHoverPause: true,
+           responsive: {
+             0:{
+               items:1,
+               nav: false
+             },
+             700:{
+               items:2,
+               nav: false
+             },
+             1000:{
+               items:3,
+               nav: false
+             }
+           }
+         });
+      </script>
 
 
-
-
-
-
-
-
-
-<div class="search_slider_box">
-    <img src="./img/item2.png" alt="">
-    <p>Sheba Fine Flakes</p>
-       <span>13,70 ₴</span>
-       
-   </div>
-
-
-
-
-
-
-
-
-
-<div class="clear"></div>
-<div class="search_dots">
-<div class="search__list-element search__list-element-selected"></div>
-<div class="search__list-element "></div>
-<div class="search__list-element "></div>
-<div class="search__list-element "></div>
-<div class="search__list-element "></div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="clear"></div>
+  
+ 
 <div class="clear"></div>
     <div class="footer">
         <div class="top_line">
