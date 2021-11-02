@@ -1,0 +1,59 @@
+.login_box input{
+    border:2px solid #3F6E89; 
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #EEEEEEEE;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 40%;
+    color: #3F6E89;
+    font-weight: 800;
+}
+.login_box input:invalid {
+    border: 2px solid red;
+
+  }
+  .login_box  input:valid{
+    border:2px solid #3F6E89;  
+}
+.login_action p{
+    color: #959595;
+    font-size: small;
+    text-align: center;
+    margin-top: 10px;
+}
+.login_action{
+    margin-top: 30px;
+}
+.login_action a{
+    color: black;
+    text-decoration: underline;
+    font-size: small;
+}
+.login_action img{
+    width: 5%;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.login_action button{
+    background-color: #3F6E89;
+    padding: 10px;
+    border-radius: 10px;
+    width: 20%;
+    color: #EEEEEEEE;
+    font-weight: 800;
+    margin: auto;
+    display: block;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.allert{
+    text-align: center;
+    color: red;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: x-large;
+    font-weight: 800;
+}
