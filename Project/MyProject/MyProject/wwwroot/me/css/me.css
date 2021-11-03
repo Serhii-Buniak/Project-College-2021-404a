@@ -1,100 +1,53 @@
-.search_select{
-    width: 80%;
-    margin: auto;
-}
-.search_select_left{
-    width: 30%;
-    float: left;
-    margin-top: 25px;
-    margin-left: 30px;
-    color: #3F6E89;
-  
-}
-.search_select_left input{
-    width: 15%;
-    text-align: center;
-padding: 5px;
-border-radius: 10px;
-
-color: #3f6e89;
-font-weight: 700;
-background-color:#EEEEEE;
-    
-}
-.search_select_left Button{
-    width: 15%;
-    text-align: center;
-padding: 5px;
-border-radius: 10px;
-background-color: #3f6e89;
-border-width: 2px;
-color: #EEEEEE;
-font-weight: 700;
-
-    
-}
-.search_select_left p{
-    margin-bottom: 10px;
-    font-weight: 900;
-}
-.search_select_left select{
-width: 100%;
-text-align: center;
-padding: 5px;
-border-radius: 10px;
-border-color: #3f6e89;
-border-width: 2px;
-color: #3f6e89;
-font-weight: 700;
-background-color:#EEEEEE;
-}
-
-
-
 
 .search_wrapper {
    width: 80%;
    margin: auto;
 }
-.search_box{
-    width: 22%; 
-    float: left;
-    background: #EEEEEE;
-border: 1px solid #EEEEEE;
-box-sizing: border-box;
-box-shadow: 5px 4px 33px 11px rgba(0, 0, 0, 0.11);
-padding: 10px;
-margin: 10px;
+.me_body{
+    margin-top: 30px;
 }
-.search_box img{
-    width: 100%;
+.me_body input{
+    width: 25%;
+    background-color: #EEEEEE;
+    border-radius: 15px;
+    height: 30px;
+    border: 3px solid #275878;
+    margin-left: 10px;
 }
-.search_box p{
-    font-size:medium;
-    width: 45%;
-    float: left;
-    font-weight: 600;
-    margin-bottom: 15px;
-    margin-top: 15px;
-
+.me_body p{
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
 }
-.search_box span{
-    color: #3F6E89;
+.me_body span{
+    color: #2f6182;
+    font-size: larger;
     font-weight: 800;
-    font-size: x-large;
-    float: right;
-    margin-top: 15px;
-    display: block;
 }
-.search_box button{
+.me_body button{
     background-color: #3F6E89;
     padding: 5px;
-    width: 60%;
+    
+    width: 10%;
     text-align: center;
     color: #EEEEEE;
     font-size:larger;
     border-radius: 10px;
 }
+.me_history a{
+    color: #2f6182;
+    text-decoration: underline;
+    font-size: x-large;
+    font-weight: 800;
+    display: block;
+   margin-bottom: 40px;
+   margin-top: 40px;
+    text-align: center;
+}
+
+
+
+
 .search_box:hover{
     background-color: #bebcbc;
     box-shadow: 10px 10px 33px 11px rgba(0, 0, 0, 0.11);
@@ -115,7 +68,7 @@ margin: 10px;
     font-weight: 800;
     color: #3f6e89;
     border: 2px solid #3f6e89;
-    opacity: 0.7;
+    opacity: 1.7;
     margin-bottom: 30px;
 }
 .search__page:hover{
