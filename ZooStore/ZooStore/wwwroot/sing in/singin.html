@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="./css/singin.css">
     <script src="./js/singin.js"></script>
-    <title>Log in</title>
+    <title>Sing in</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,800&display=swap" rel="stylesheet">
 </head>
 
@@ -35,9 +35,9 @@
 
             <div class="top_menu">
                 <div class="menu_left">
-                    <span>Вхід</span>
+                    <span>Реєстрація</span>
                 </div>
-                <a class="nav-element" href="">Реєстрація</a>
+                <a class="nav-element" href="">Вхід</a>
 
             </div>
         </div>
@@ -56,34 +56,39 @@
                 </div>
             </div>
             <div class="line"></div>
-            <div class="input-validation-error">
-                <p>Не правильний логін або пароль</p>
-            </div>
             <form>
+                <div class="input-validation-error">
+                    <p>Таке Iм'я вже існує</p>
+                </div>
                 <div class="login_box">
 
+                    <input placeholder="Iм'я" type="text" name="Password" required=" " required minlength="6">
                     <div>
+                        <div class="input-validation-error-el">
+                            <p>Таке Iм'я вже існує</p>
+                        </div>
                         <input placeholder="Телефон" type="text" name="Username" class="tel" pattern="..................">
-                        <div class="input-validation-error-el">
-                            <p>Таке Iм'я вже існує</p>
-                        </div>
-
                     </div>
+                    
                     <div>
-                        <input placeholder="Пароль" type="text" name="Password">
                         <div class="input-validation-error-el">
                             <p>Таке Iм'я вже існує</p>
                         </div>
+                        <input placeholder="E-mail" type="text" name="E-mail">
                     </div>
+                   
+                    <input id="inp1" placeholder="Пароль" type="text" name="Password">
+                    <input id="inp2" placeholder="Підтвердити пароль" type="text" name="Password">
 
+                  
 
                 </div>
                 <div class="login_action">
-                    <button>ВХІД</button>
+                    <button id="b">Реєстрація</button>
                     <p>У вас немає акаунта? <a href="">Зареєструватися</a></p>
                     <p>Забули пароль? <a href="">Відновити</a></p>
-
                     <p><a href=""><img src="./img/google.png" alt=""></a> <a href=""><img src="./img/facebook.png" alt=""></a></p>
+
 
                 </div>
             </form>
