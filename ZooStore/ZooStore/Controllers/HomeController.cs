@@ -1,68 +1,38 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using ZooStore.Controllers.Extensions;
 using ZooStore.Models;
 using ZooStore.Models.Repositories;
-using ZooStore.Models.ViewModels;
 
 namespace ZooStore.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IReadOnlyRepository<Category> _categoryRepository;
         private readonly IReadOnlyRepository<Product> _productRepository;
-
-        public HomeController(IReadOnlyRepository<Product> repository)
+        public HomeController(ICategoryRepository categoryRepository, IProductRepository productRepository)
         {
-            _productRepository = repository;
+            _categoryRepository = categoryRepository;
+            _productRepository = productRepository;
         }
+
         public IActionResult Index()
         {
+            Dictionary<string, IEnumerable<string>> dictionary = new();    
             
-
-            return View(new GroupedCategories()
+            foreach (var category in _categoryRepository.Items)
             {
-                AnimalsCategories = _productRepository.Items.GetCategoriesForType(typeof(Animal)),
-                FoodsCategories = _productRepository.Items.GetCategoriesForType(typeof(Food)),
-                AccessoriesCategories = _productRepository.Items.GetCategoriesForType(typeof(Accessory))
-            });
+                dictionary.Add(category.Name, category.Subcategories.Select(s => s.Name));
+            }
+            return View(dictionary);
         }
-         
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public ViewResult Product()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+
+            return View(_productRepository.Items.Skip(2).First());
         }
     }
 }

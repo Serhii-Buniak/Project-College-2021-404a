@@ -25,21 +25,20 @@ namespace ZooStore
         {
 
             services.AddDbContext<StoreDbContext>(options =>
-             options.UseSqlServer(Configuration.GetConnectionString("MyZooStoreContextConnection")));
+                 options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("MyZooStoreContextConnection")));
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MyZooStoreContextConnection")));
+                options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("MyZooStoreContextConnection")));
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-            services.AddTransient<IReadOnlyRepository<Product>, EFProductRepository>();
-            services.AddTransient<IProductRepository<Food>, EFFoodRepository>();
-            services.AddTransient<IProductRepository<Animal>, EFAnimalRepository>();
-            services.AddTransient<IProductRepository<Accessory>, EFAccessoryRepository>();
+            services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddTransient<ICategoryRepository, EFCategoryRepository>();
+            services.AddTransient<ISubcategoryRepository, EFSubcategoryRepository>();
 
         }
 
@@ -72,7 +71,7 @@ namespace ZooStore
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-            SeedData.EnsurePopulated(app);
+          SeedData.EnsurePopulated(app);
         }
     }
 }

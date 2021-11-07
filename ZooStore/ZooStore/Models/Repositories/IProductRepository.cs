@@ -10,9 +10,19 @@ namespace ZooStore.Models.Repositories
     {
         IQueryable<T> Items { get; }
     }
-    public interface IProductRepository<T> : IReadOnlyRepository<T> where T : Product
+
+    public interface IProductRepository : IReadOnlyRepository<Product>
     {
-        void Add(T product);
+        void Add(Product product);
     }
 
+    public interface ICategoryRepository : IReadOnlyRepository<Category>
+    {
+        void Add(Category category);
+    }
+
+    public interface ISubcategoryRepository : IReadOnlyRepository<Subcategory>
+    {
+        void Add(Subcategory subcategory);
+    }
 }

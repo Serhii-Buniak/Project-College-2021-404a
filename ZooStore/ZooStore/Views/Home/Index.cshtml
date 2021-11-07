@@ -1,7 +1,8 @@
-﻿@model GroupedCategories
+﻿@model IDictionary<string, IEnumerable<string>>
 
 @{
     ViewData["Title"] = "Каталог";
+
 }
 
 <div class="home__top">
@@ -87,26 +88,27 @@
     <div class="clear"></div>
     <div class="home_catalog2_menu">
         <ul>
-        
-            @foreach (Category category in Model.AnimalsCategories)
+            @foreach (var subcategory in Model["Тварини"])
             {
-                <li><a href="">@category?.Name</a></li>
+                <li>@subcategory</li>
             }
+
         </ul>
     </div>
     <div class="home_catalog2_menu">
         <ul>
-            @foreach (Category category in Model.FoodsCategories)
+            @foreach (var subcategory in Model["Їжа"])
             {
-                <li><a href="">@category?.Name</a></li>
+                <li>@subcategory</li>
             }
+         
         </ul>
     </div>
     <div class="home_catalog2_menu">
         <ul>
-            @foreach (Category category in Model.AccessoriesCategories)
+            @foreach (var subcategory in Model["Аксесуари"])
             {
-                <li><a href="">@category?.Name</a></li>
+                <li>@subcategory</li>
             }
         </ul>
     </div>
