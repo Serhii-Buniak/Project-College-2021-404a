@@ -31,8 +31,7 @@ namespace ZooStore.Controllers
 
         public ViewResult Product()
         {
-
-            return View(_productRepository.Items.Skip(2).First());
+            return View(_productRepository.Items.Skip(3).First());
         }
     }
 }
