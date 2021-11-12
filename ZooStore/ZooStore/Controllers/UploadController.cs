@@ -16,7 +16,7 @@ namespace ZooStore.Controllers
         private readonly IProductRepository _productRepository;
         private readonly ISubcategoryRepository _subcategoryRepository;
         private readonly IWebHostEnvironment _env;
-
+        private SelectList SelectListSubcategories => new(_subcategoryRepository.Items, "Id", "Name");
         public UploadController(IProductRepository productRepository, ISubcategoryRepository subcategoryRepository, IWebHostEnvironment env)
         {
             _productRepository = productRepository;
@@ -26,8 +26,7 @@ namespace ZooStore.Controllers
         public IActionResult Index() => View();
         public IActionResult Create()
         {
-
-            ViewBag.Categories = new SelectList(_subcategoryRepository.Items, "Id", "Name");
+            ViewBag.Subcategories = SelectListSubcategories;
             return View();
         }
 
@@ -38,6 +37,7 @@ namespace ZooStore.Controllers
             if (ModelState.IsValid)
             {
                 string uniqueFileName = await UploadFileAsync(model);
+              
 
                 _productRepository.Add(new Product()
                 {
@@ -51,8 +51,11 @@ namespace ZooStore.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Categories = new SelectList(_subcategoryRepository.Items, "Id", "Name");
-            return View("Create");
+            else
+            {
+                ViewBag.Subcategories = SelectListSubcategories;
+                return View();
+            }
         }
 
         private async Task<string> UploadFileAsync(ProductForm model)
@@ -63,9 +66,7 @@ namespace ZooStore.Controllers
             {
 
                 string uploadsFolder = Path.Combine(_env.WebRootPath, "upload");
-
                 uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
-
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))

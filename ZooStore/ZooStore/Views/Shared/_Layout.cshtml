@@ -12,21 +12,14 @@
 </head>
 <body>
     <div class="header">
-
         @await Html.PartialAsync("_HeaderPartial")
-
    
         <div class="all">
            
             @await Html.PartialAsync("_SearchLinePartial")
+            @await Html.PartialAsync("_NavigationPartial")
 
-            <div class="top_menu">
-               
-                <a class="nav-element" href="">Каталог</a>
-                <a class="nav-element" href="">Чому ми?</a>
-                <a class="nav-element" href="">Де ми?</a>
 
-            </div>
         </div>
     </div>
 

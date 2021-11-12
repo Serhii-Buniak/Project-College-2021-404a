@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "ZooStore - Пошук";
+}
+
+<link rel="stylesheet" href="/search/css/search.css">
+
+<div class="search_select">
+    <form method="get">
+        <div class="search_select_left">
+            <p>категорія</p>
+            <select name="subcategoryId" id="subcategoryId" asp-items="ViewBag.Subcategories" class="custom-select">
+                <option value=""> Не обрано </option>
+            </select>
+        </div>
+        <div class="search_select_left" name="comparer">
+            <p>сортування</p>
+            <select data-val="true" data-val-required="The SelectedTag field is required." name="comparer" id="comparer" asp-items="ViewBag.Comparers" class="custom-select">
+                <option value=""> Не обрано </option>
+            </select>
+        </div>
+        <div class="search_select_left">
+            <p>Ціна</p>
+            <input name="minPrice" placeholder="@String.Format("{0:f0}", ViewBag.MinPrice ?? String.Empty)">
+            <input name="maxPrice" placeholder="@String.Format("{0:f0}", ViewBag.MaxPrice ?? String.Empty)">
+            <button>OK</button>
+        </div>
+    </form>
+</div>
+
+<div class="clear"></div>
+<div class="search_wrapper">
+    @foreach (Product product in Model)
+    {
+        <a asp-action="Product" asp-route-id="@product.Id">
+            <div class="search_box">
+                <img src="/upload/@product.Picture" alt="@product.Name">
+                <p>@product.Name</p>
+                <span>@product.Price.ToString("#") ₴</span>
+                <button>Замовити</button>
+            </div>
+        </a>
+    }
+</div>
+<div class="clear"></div>
+
+<div class="search_scroll">
+    <div class="search__page  search__page-selected"> <span>1</span></div>
+    <div class="search__page"><span>2</span></div>
+    <div class="search__page"><span>3</span></div>
+    <div class="search__page"><span>4</span></div>
+    <div class="search__page"><span>5</span></div>
+</div>
+<div class="clear"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+<div class="search_slider">
+
+    <span>Недавно переглянуті товариші</span>
+
+
+    <div class="wrapper">
+        <div class="carousel owl-carousel">
+            <div class="search_slider_box">
+                <img src="/search/img/item.png" alt="">
+                <p>Sheba Fine Flakes</p>
+                <span>13,70 ₴</span>
+            </div>
+            <div class="search_slider_box">
+                <img src="/search/img/item.png" alt="">
+                <p>Sheba Fine Flakes</p>
+                <span>13,70 ₴</span>
+            </div>
+            <div class="search_slider_box">
+                <img src="/search/img/item.png" alt="">
+                <p>Sheba Fine Flakes</p>
+                <span>13,70 ₴</span>
+            </div>
+            <div class="search_slider_box">
+                <img src="/search/img/item.png" alt="">
+                <p>Sheba Fine Flakes</p>
+                <span>13,70 ₴</span>
+            </div>
+
+        </div>
+    </div>
+</div>

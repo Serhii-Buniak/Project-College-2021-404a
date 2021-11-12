@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -18,11 +19,8 @@ namespace ZooStore.Models.ViewModels
         [Required]
         public IList<Property> Properties { get; set; }
 
-
         [Required(ErrorMessage = "Please choose profile image")]
         [Display(Name = "Product Picture")]
-        public IFormFile Image { get; set; }
-
-        
+        public IFormFile Image { get; set; }      
     }
 }
