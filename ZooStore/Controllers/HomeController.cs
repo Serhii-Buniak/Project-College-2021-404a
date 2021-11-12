@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using ZooStore.Models;
 using ZooStore.Models.Repositories;
+using ZooStore.Services.Search;
 
 namespace ZooStore.Controllers
 {
@@ -15,6 +16,7 @@ namespace ZooStore.Controllers
         private readonly IReadOnlyRepository<Category> _categoryRepository;
         private readonly IReadOnlyRepository<Subcategory> _subcategoryRepository;
         private readonly IReadOnlyRepository<Product> _productRepository;
+        private readonly ISearchService _searchService;
 
         private readonly static IDictionary<string, IComparer<Product>> _productComparers = new Dictionary<string, IComparer<Product>>()
         {
@@ -22,11 +24,12 @@ namespace ZooStore.Controllers
             ["Від дешевих до дорогих"] = new PeopleComparerByPriceDescending(),
         };
 
-        public HomeController(ICategoryRepository categoryRepository, ISubcategoryRepository subcategoryRepository, IProductRepository productRepository)
+        public HomeController(ICategoryRepository categoryRepository, ISubcategoryRepository subcategoryRepository, IProductRepository productRepository, ISearchService searchService)
         {
             _categoryRepository = categoryRepository;
             _subcategoryRepository = subcategoryRepository;
             _productRepository = productRepository;
+            _searchService = searchService;
         }
 
         public IActionResult Index()
@@ -55,7 +58,7 @@ namespace ZooStore.Controllers
 
         }
 
-        public IActionResult Search(Guid? subcategoryId, string comparer, decimal? minPrice, decimal? maxPrice)
+        public IActionResult Search(Guid? subcategoryId, string comparer, decimal? minPrice, decimal? maxPrice, string search)
         {
             IEnumerable<Product> products = _productRepository.Items;
 
@@ -80,6 +83,10 @@ namespace ZooStore.Controllers
                 ViewBag.MinPrice = products.Min(p => p.Price) ;
                 ViewBag.MaxPrice = products.Max(p => p.Price);
             }
+
+            if (search is not null)
+            products = _searchService.GetSerchedProducts(products, search);
+
             return View(products);
         }
 

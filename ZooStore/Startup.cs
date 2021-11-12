@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using ZooStore.Data;
 using ZooStore.Models;
 using ZooStore.Models.Repositories;
+using ZooStore.Services.Search;
 
 namespace ZooStore
 {
@@ -39,6 +40,7 @@ namespace ZooStore
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddTransient<ICategoryRepository, EFCategoryRepository>();
             services.AddTransient<ISubcategoryRepository, EFSubcategoryRepository>();
+            services.AddTransient<ISearchService, SearchService>();
 
         }
 

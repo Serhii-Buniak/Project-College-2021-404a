@@ -33,6 +33,15 @@ namespace ZooStore.Models
 
         [NotMapped]
         public Category Category => Subcategory.Category;
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Id.Equals(((Product)obj).Id);
+        }
 
     }
 }
