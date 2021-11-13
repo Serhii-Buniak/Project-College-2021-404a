@@ -11,62 +11,53 @@ namespace ZooStore.Services.Search
     {
         public IEnumerable<Product> GetSerchedProducts(IEnumerable<Product> products, string searchText)
         {
-            HashSet<ProductAndPriority?> productsSet = new();
+            List<ProductAndPriority> productsSet = new();
 
             foreach (Product product in products)
             {
-                ProductAndPriority? productPriority = TryGetProductAndPriority(product, GetInfoToFind(product), searchText);
+                ProductAndPriority productPriority = TryGetProductAndPriority(product, GetInfoToFind(product), searchText);
                 if (productPriority is not null)
                 {
                     productsSet.Add(productPriority);
                 }
             }
 
-            return productsSet.OrderBy(p => p.Value.Priority).Select(p => p.Value.Product);
+            return productsSet.Where(p => p.Priority != 0).OrderByDescending(p => p.Priority).Select(p => p.Product);
         }
 
 
-        private ProductAndPriority? TryGetProductAndPriority(Product product, IEnumerable<string> valuesToFind, string searchText)
+        private ProductAndPriority TryGetProductAndPriority(Product product, IEnumerable<string> valuesToFind, string searchText)
         {
-            ProductAndPriority? productPriority = null;
+            ProductAndPriority productPriority = new() { Product = product };
 
             string[] toFind = valuesToFind.ToArray();
+
+            string[] searchWords = searchText.Split(' ')
+                        .Select(s => s.Trim(' ', '.', '/', '*', ',', '+'))
+                        .Where(s => string.IsNullOrWhiteSpace(s) == false)
+                        .ToArray();
+
             for (int i = 0; i < toFind.Length; i++)
             {
-                productPriority = TryMakeProductAndPriority(product, priority: i + 1, toFind[i], searchText);
-                if (productPriority is not null)
-                    return productPriority;
+                TryIncrement(productPriority, toFind[i], searchText, (i + 1) * 5);
 
-                string[] searchWords = searchText.Split(' ')
-                                        .Where(s => string.IsNullOrWhiteSpace(s))
-                                        .Select(s => s.Trim(' ', '.', '/', '*', ','))
-                                        .ToArray();
 
                 for (int j = 0; j < searchWords.Length; j++)
                 {
-                    productPriority = TryMakeProductAndPriority(product, priority: i * j * 2 + 1, toFind[i], searchWords[j]);
-                    if (productPriority is not null)
-                        return productPriority;
+                    TryIncrement(productPriority, toFind[i], searchWords[j], i * 3 + 1);
                 }
-
-
             }
 
             return productPriority;
         }
-        private ProductAndPriority? TryMakeProductAndPriority(Product product, int priority, string valueToFind, string searchText)
-        {
-            ProductAndPriority? productPriority = null;
 
+
+        private ProductAndPriority TryIncrement(ProductAndPriority productPriority, string valueToFind, string searchText, int value)
+        {
             if (valueToFind.Contains(searchText, StringComparison.OrdinalIgnoreCase))
             {
-                productPriority = new ProductAndPriority()
-                {
-                    Product = product,
-                    Priority = priority
-                };
+                productPriority.Increment(value);
             }
-
             return productPriority;
         }
 
@@ -74,9 +65,9 @@ namespace ZooStore.Services.Search
         {
             return new string[]
             {
-                product.Name,
                 product.Description,
-                GetStringValues(product.Properties)
+                GetStringValues(product.Properties),
+                product.Name,
             };
         }
 

@@ -4,10 +4,10 @@ namespace ZooStore.Services.Search
 {
     public partial class SearchService
     {
-        private struct ProductAndPriority
+        private class ProductAndPriority
         {
             public Product Product { get; init; }
-            public int Priority { get; init; }
+            public int Priority { get; private set; } = 0;
             public override int GetHashCode()
             {
                 return Product.GetHashCode();
@@ -16,6 +16,11 @@ namespace ZooStore.Services.Search
             {
                 Product product = ((ProductAndPriority)obj).Product;
                 return Product.Equals(product);
+            }
+            public ProductAndPriority Increment(int value = 1)
+            {
+                Priority += value;
+                return this;
             }
         }
     }

@@ -1,11 +1,26 @@
-﻿@model IEnumerable<Product>
+﻿@model ProductListViewModel
 @{
-    ViewData["Title"] = "ZooStore - Пошук";
+    ViewData["Title"] = "Пошук";
 }
+
+
+@if (ViewBag.Search is not null)
+{
+    <div class="all">
+        <div class="main">
+            <div class="main1">
+                <span style="font-size: xx-large;"> <b>Результат пошуку:</b> @ViewBag.Search </span>
+            </div>
+        </div>
+        <div class="line"></div>
+    </div>
+}
+
+
 
 <div class="search_select">
     <form method="get">
-        <input type="hidden" name="search" id="search" value="@ViewBag?.Search"/>
+        <input type="hidden" name="search" id="search" value="@ViewBag?.Search" />
         <div class="search_select_left">
             <p>категорія</p>
             <select name="subcategoryId" id="subcategoryId" asp-items="ViewBag.Subcategories" class="custom-select">
@@ -22,14 +37,14 @@
             <p>Ціна</p>
             <input name="minPrice" placeholder="@String.Format("{0:f0}", ViewBag.MinPrice ?? String.Empty)">
             <input name="maxPrice" placeholder="@String.Format("{0:f0}", ViewBag.MaxPrice ?? String.Empty)">
-            <button>OK</button>A
+            <button>OK</button>
         </div>
     </form>
 </div>
 
 <div class="clear"></div>
 <div class="search_wrapper">
-    @foreach (Product product in Model)
+    @foreach (Product product in Model.Products)
     {
         <a asp-action="Product" asp-route-id="@product.Id">
             <div class="search_box">
@@ -43,12 +58,46 @@
 </div>
 <div class="clear"></div>
 
+<div page-model="@Model.PagingInfo" page-action="Search"></div>
 <div class="search_scroll">
-    <div class="search__page  search__page-selected"> <span>1</span></div>
-    <div class="search__page"><span>2</span></div>
-    <div class="search__page"><span>3</span></div>
-    <div class="search__page"><span>4</span></div>
-    <div class="search__page"><span>5</span></div>
+    <div class="search__page-block">
+        <div class="search__page  search__page-selected"> <span>1</span></div>
+    </div>
+
+    <div class="search__page-block">
+        <div class="search__page"><span>2</span></div>
+    </div>
+
+
+    <div class="search__page-block">
+        <div class="search__page"><span>3</span></div>
+    </div>
+
+
+    <div class="search__page-block">
+        <div class="search__page"><span>4</span></div>
+    </div>
+
+
+    <div class="search__page-block">
+        <div class="search__page"><span>5</span></div>
+    </div>
+    
+    <div class="search__page-block">
+        <div class="search__page"><span>...</span></div>
+    </div>
+
+    <div class="search__page-block">
+        <div class="search__page"><span>6</span></div>
+    </div>
+
+
+    <div class="search__page-block">
+        <div class="search__page"><span>7</span></div>
+    </div>
+
+
+
 </div>
 <div class="clear"></div>
 

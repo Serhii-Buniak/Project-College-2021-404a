@@ -24,7 +24,7 @@
     margin-bottom: 10px;
 }
 .home__main2_r2span {
-    background-color: #eeeeee;
+    background-color: #aec0ca;
     color: #3f6e89;
     font-size: small;
     font-weight: 900;
@@ -38,7 +38,7 @@
     border-color: #3f6e89;
     height: 25px;
     width: 140%;
-    background-color: #eeeeee;
+    background-color: #aec0ca;
 }
 .home__main2_r2 p {
     font-size: x-large;
@@ -96,7 +96,7 @@
     margin-top: -16px;
 }
 .home__main3_top span {
-    background-color: #eeeeee;
+    background-color: #aec0ca;
     border: 5px solid #3f6e89;
 
     border-radius: 15px;
@@ -141,7 +141,8 @@
     float: right;
 }
 .hr-line {
-    margin-top: 200px;
+    display: block;
+    margin-top: 300px;
     margin-right: 50%;
     margin-left: -170%;
     width: 290%;
@@ -158,7 +159,7 @@
     max-width: 100%; /* Ширина слоя */
     margin: 9px; /* Значение отступов */
     padding: 50px; /* Поля вокруг текста */
-    background: rgb(226, 224, 216); /* Цвет фона */
+    background:#b6d1e2;
     margin-bottom: 150px;
 }
 .div img{
@@ -218,7 +219,7 @@
 }
 .home__catalog_box:hover{
    background-color: #3f6e89;
-   color: #eeeeee;
+   color: #aec0ca;
 }
 .home__catalog2_box img{
     width: 100%;
