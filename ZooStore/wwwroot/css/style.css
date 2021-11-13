@@ -183,11 +183,13 @@ body {
 
 /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/
 datalist {
+    margin: 0 auto;
     position: absolute;
     border: 0 none;
     overflow-x: hidden;
     overflow-y: auto;
     border-radius: 10px;
+    display:none;
 }
 
 datalist option {
@@ -205,4 +207,10 @@ datalist option:focus {
     color: #fff;
     background-color: #3f6e89;
     outline: 0 none;
+}
+.option-visible{
+    display: block !important;;
+}
+.option-unvisible{
+    display: none !important;;
 }

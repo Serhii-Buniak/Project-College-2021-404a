@@ -34,26 +34,21 @@ namespace ZooStore.Services.Search
             for (int i = 0; i < toFind.Length; i++)
             {
                 productPriority = TryMakeProductAndPriority(product, priority: i + 1, toFind[i], searchText);
-
                 if (productPriority is not null)
-                {
-                    break;
-                }
-                else
-                {
-                    string[] searchWords = searchText.Split(' ')
-                                            .Where(s => string.IsNullOrWhiteSpace(s))
-                                            .Select(s => s.Trim(' ', '.', '/', '*', ','))
-                                            .ToArray();
+                    return productPriority;
 
-                    for (int j = 0; j < searchWords.Length; j++)
-                    {
-                        productPriority = TryMakeProductAndPriority(product, priority: i * j * 2 + 1, toFind[i], searchWords[j]);
+                string[] searchWords = searchText.Split(' ')
+                                        .Where(s => string.IsNullOrWhiteSpace(s))
+                                        .Select(s => s.Trim(' ', '.', '/', '*', ','))
+                                        .ToArray();
 
-                        if (productPriority is not null)
-                            break;
-                    }
+                for (int j = 0; j < searchWords.Length; j++)
+                {
+                    productPriority = TryMakeProductAndPriority(product, priority: i * j * 2 + 1, toFind[i], searchWords[j]);
+                    if (productPriority is not null)
+                        return productPriority;
                 }
+
 
             }
 

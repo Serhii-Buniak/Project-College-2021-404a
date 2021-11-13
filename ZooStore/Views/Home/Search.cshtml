@@ -3,10 +3,9 @@
     ViewData["Title"] = "ZooStore - Пошук";
 }
 
-<link rel="stylesheet" href="/search/css/search.css">
-
 <div class="search_select">
     <form method="get">
+        <input type="hidden" name="search" id="search" value="@ViewBag?.Search"/>
         <div class="search_select_left">
             <p>категорія</p>
             <select name="subcategoryId" id="subcategoryId" asp-items="ViewBag.Subcategories" class="custom-select">
@@ -23,7 +22,7 @@
             <p>Ціна</p>
             <input name="minPrice" placeholder="@String.Format("{0:f0}", ViewBag.MinPrice ?? String.Empty)">
             <input name="maxPrice" placeholder="@String.Format("{0:f0}", ViewBag.MaxPrice ?? String.Empty)">
-            <button>OK</button>
+            <button>OK</button>A
         </div>
     </form>
 </div>
@@ -53,9 +52,7 @@
 </div>
 <div class="clear"></div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
 
 <div class="search_slider">
 

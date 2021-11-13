@@ -4,18 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ZooStore</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />*@
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="~/home/css/home.css"/>
-    <script asp-src-include="~/**/*.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js" defer></script>
+    <link rel="stylesheet" asp-href-include="~/**/*.css" asp-href-exclude="*/**/bootstrap/*, *Identity/css/site.css" />
+    <script type="module" asp-src-include="~/**/*.js" asp-src-exclude="**/lib/**/*.js"> </script>
+
+
+    <title>Home1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,800&display=swap" rel="stylesheet">
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
 </head>
 <body>
     <div class="header">
         @await Html.PartialAsync("_HeaderPartial")
-   
+
         <div class="all">
-           
+
             @await Html.PartialAsync("_SearchLinePartial")
             @await Html.PartialAsync("_NavigationPartial")
 
@@ -28,7 +35,7 @@
         @RenderBody()
 
     </main>
-    
+
     @await Html.PartialAsync("_FooterPartial")
 
 </body>

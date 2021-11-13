@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
+using ZooStore.Comparers;
 using ZooStore.Models;
 using ZooStore.Models.Repositories;
 using ZooStore.Services.Search;
@@ -20,8 +19,8 @@ namespace ZooStore.Controllers
 
         private readonly static IDictionary<string, IComparer<Product>> _productComparers = new Dictionary<string, IComparer<Product>>()
         {
-            ["Від дорогих до дешевих"] = new PeopleComparerByPriceAscending(),
-            ["Від дешевих до дорогих"] = new PeopleComparerByPriceDescending(),
+            ["Від дорогих до дешевих"] = new PeopleComparerByPriceDescending(),
+            ["Від дешевих до дорогих"] = new PeopleComparerByPriceAscending(),
         };
 
         public HomeController(ICategoryRepository categoryRepository, ISubcategoryRepository subcategoryRepository, IProductRepository productRepository, ISearchService searchService)
@@ -63,10 +62,7 @@ namespace ZooStore.Controllers
             IEnumerable<Product> products = _productRepository.Items;
 
             if (subcategoryId is not null)
-                products = products.Where(p => p.Subcategory.Id == subcategoryId);
-
-            if (comparer is not null)
-                products = products.OrderByDescending(p => p, _productComparers[comparer]);
+                products = products.Where(p => p.Subcategory.Id == subcategoryId);        
 
             if (minPrice is not null)
                 products = products.Where(p => p.Price >= minPrice);
@@ -78,6 +74,7 @@ namespace ZooStore.Controllers
 
             ViewBag.Comparers = new SelectList(_productComparers.Keys, comparer);
 
+            ViewBag.Search = search;
             if (products.Any())
             {
                 ViewBag.MinPrice = products.Min(p => p.Price) ;
@@ -87,34 +84,12 @@ namespace ZooStore.Controllers
             if (search is not null)
             products = _searchService.GetSerchedProducts(products, search);
 
+            if (comparer is not null)
+                products = products.OrderBy(p => p, _productComparers[comparer]);
+
             return View(products);
         }
 
-    }
-
-    public class PeopleComparerByPriceAscending : IComparer<Product>
-    {
-        public int Compare(Product p1, Product p2)
-        {
-            if (p1.Price > p2.Price)
-                return 1;
-            else if (p1.Price < p2.Price)
-                return -1;
-            else
-                return 0;
-        }
-    }
-    public class PeopleComparerByPriceDescending : IComparer<Product>
-    {
-        public int Compare(Product p1, Product p2)
-        {
-            if (p1.Price < p2.Price)
-                return 1;
-            else if (p1.Price > p2.Price)
-                return -1;
-            else
-                return 0;
-        }
     }
 }
 
