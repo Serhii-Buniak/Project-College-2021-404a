@@ -56,10 +56,15 @@
     width: 80%;
     margin: auto;
 }
-
+.search_wrapper img{
+    box-sizing: border-box;
+    height: 70%;
+    width: 90%;
+}
 .search_box {
     width: 22%;
     float: left;
+    height: 380px;
     background: #EEEEEE;
     border: 1px solid #EEEEEE;
     box-sizing: border-box;
