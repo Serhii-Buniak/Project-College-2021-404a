@@ -70,9 +70,10 @@ namespace ZooStore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}");
                 endpoints.MapRazorPages();
             });
+            
           SeedData.EnsurePopulated(app);
         }
     }

@@ -113,17 +113,21 @@
 }
 
 .search_scroll {
-    display: flex;
-  
+   
     padding-top: 30px;
-    padding: 0 250px;
+    display: flex;
+    justify-content: center;
+    
 }
 .search__page-block{
     text-align: center;
     font-size: larger;
-    flex: auto;
     opacity: 1.7;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
+    max-width: 50px;
+    flex: auto;
+    margin: 10px;
+
 }
 .search__page {
     font-weight: 800;
@@ -131,7 +135,7 @@
     border: 2px solid #3f6e89;
     margin: 0 auto;
     max-width: 50px;
- 
+  
 }
 
 .search__page:hover {

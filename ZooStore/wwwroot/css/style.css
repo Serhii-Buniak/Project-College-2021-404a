@@ -7,10 +7,6 @@ a:focus,
 a:active {
     outline: none;
 }
-a,
-a:visited {
-    text-decoration: none;
-}
 
 body {
     background-color: #aec0ca;
@@ -19,7 +15,15 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
-
+a,
+a:visited {
+    text-decoration: none;
+    color: #000;
+}
+a:hover {
+    text-decoration: none;
+    color: #000;
+}
 /*header start -----------------------------*/ /*header start -----------------------------*/ /*header start -----------------------------*/ /*header start -----------------------------*/ /*header start -----------------------------*/
 .top_line {
     background-color: #3f6e89;
@@ -90,17 +94,12 @@ body {
     width: 30%;
 }
 
-
 .d1 input {
- 
-  border: 2px solid #3e5f71;
-  
-  outline: 3.0px solid rgb(178, 194, 211);
- border-width: 3.15px;
-  
- 
-}
+    border: 2px solid #3e5f71;
 
+    outline: 3px solid rgb(178, 194, 211);
+    border-width: 3.15px;
+}
 
 .menu_left {
     width: 15%;
@@ -168,8 +167,6 @@ body {
 .footer {
     background-color: #3f6e89;
     min-height: 20px;
-    
-    
 }
 .footer p {
     color: #eeeeee;
@@ -177,7 +174,6 @@ body {
     margin: auto;
     width: 80%;
     float: left;
-   
 }
 
 /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/ /*footer stop -----------------*/
@@ -188,7 +184,7 @@ datalist {
     overflow-x: hidden;
     overflow-y: auto;
     border: 1px solid #000;
-    display:none;
+    display: none;
 }
 
 datalist option {
@@ -196,8 +192,6 @@ datalist option {
     padding: 0.3em 1em;
     background-color: rgb(255, 255, 255);
     cursor: pointer;
-
-    
 }
 
 /* option active styles */
@@ -207,9 +201,9 @@ datalist option:focus {
     background-color: #3f6e89;
     outline: 0 none;
 }
-.option-visible{
+.option-visible {
     display: block !important;
 }
-.option-unvisible{
+.option-unvisible {
     display: none !important;
 }
