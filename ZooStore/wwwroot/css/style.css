@@ -9,7 +9,7 @@ a:active {
 }
 
 body {
-    background-color: #aec0ca;
+    background-color: #eeeeee;
 }
 .content {
     max-width: 1200px;
@@ -36,7 +36,7 @@ a:hover {
 .top_line span {
     float: right;
     padding-right: 20px;
-    color: #aec0ca;
+    color: #eeeeee;
     font-size: large;
     padding-top: 5px;
 }
