@@ -1,53 +1,39 @@
-.where-we__main2{
-    margin-top: 40px;
+.sr_r2{
+    width: 15%;
+    float: right;
+    padding-top: 10px;
 }
-.where-we__main2 span{
-font-size: large;
-margin-top:10px;
-display: block;
+.sr_r2 img{
+width: 20%;
+margin-top: 10%;
+float: left;
 }
-
-.where-we__main3 {
-    margin-top: 30px;
-   
-}
-.where-we__main3 span{
-    font-size: x-large;
-   font-weight: bold;
-  
-}
-
-.where-we__main3_l{
-    margin-top: 30px;
-    float: left;
+.sr_r2 button{
     width: 50%;
-}
-.where-we__main3_l ul{
-    list-style: none;
-}
-.where-we__main3_l li span{
-    text-decoration: none;
-    font-size: larger;
-    
-}
-.where-we__main3_l p{
-    color: #3F6E89;
-    font-size: small;
+    float: right;
+    margin-bottom: 5px;
     margin-top: 5px;
-    margin-bottom: 20px;
+    border: 2px solid #3F6E89;
+    padding: 2px;
+    border-radius: 15px;
 }
-.where-we__main3_r ul{
-    list-style: none;
-    margin-top: 30px;
+.sr_r2 button:hover {
+    background-color: #3F6E89;
+    color: #eeeeee;
 }
-.where-we__main3_r li span{
-    text-decoration: none;
-    font-size: larger;
+
+.sr_m2 {
+    width: 45%;
+    margin: auto;
+    padding: 40px;
+    float: left;
+}
+.sr_m2 input{
+    width: 70%;
+    height: 16px;
+    float: right;
+    border: 2px solid #3F6E89;
+    background-color: #eeeeee;
+    padding: 5px;
     
-}
-.where-we__main3_r p{
-    color: #3F6E89;
-    font-size: small;
-    margin-top: 5px;
-    margin-bottom: 20px;
 }

@@ -1,0 +1,137 @@
+
+
+.order_wrapper {
+   width: 60%;
+   margin: auto;
+   box-shadow: 5px 4px 33px 11px rgba(0, 0, 0, 0.11);
+   margin-top: 20px;
+  
+}
+.order_box{
+    width: 20%; 
+    margin: auto;
+    min-height: 210px;
+    background: #EEEEEE;
+border: 1px solid #EEEEEE;
+box-sizing: border-box;
+float: left;
+
+padding: 10px;
+
+}
+.order_box img{
+    max-width: 135px;
+    float: left;
+    margin-right: 10px;
+}
+.order_box p{
+    font-size:large;
+   
+   margin: auto;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top:2%;
+
+}
+.order_box span{
+    color: #3F6E89;
+    font-weight: 800;
+    font-size: x-large;
+   box-sizing: border-box;
+   margin-left: 10px;
+    
+   
+}
+.order_number input{
+    width: 15%;
+    height:27px;
+    font-size: x-large;
+    font-weight: 500;
+    margin-left: 2px;
+    border: 2px solid #3F6E89;
+    text-align: center;
+}
+
+.order_number{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.order_box button{
+    border: 2px solid #3F6E89;
+    border-radius: 20px;
+    height: 30px;
+    width: 70%;
+    font-weight: 500;
+    margin:auto;
+    display: block;
+}
+.order_box button:hover {
+    border: 2px solid #3F6E89;
+    background-color: #3F6E89;
+    color: #EEEEEE;
+    
+}
+
+.order_number button{
+    width: 4%;
+    height: 32px;
+    margin-left: 2px;
+    border-radius: 0;
+    border: 2px solid #3F6E89;
+    background-color: #3F6E89;
+    color: #EEEEEE;
+    font-size: x-large;
+    font-weight: 500;
+}
+.order_box:hover{
+   background-color: #e0dfdf;
+    box-shadow: 10px 10px 33px 11px rgba(0, 0, 0, 0.11);
+}
+.order_footer{
+    width: 40%;
+    margin: auto;
+    margin-top: 30px;
+    
+}
+.order_footer button{
+    margin: auto;
+    width: 100%;
+    font-size: x-large;
+    font-weight: 600;
+    border: 2px solid #3F6E89;
+    padding: 20px;
+    color: #3F6E89;
+    margin-bottom: 30px;
+}
+
+.order_footer button:hover {
+    border: 2px solid #3F6E89;
+    background-color: #3F6E89;
+    color: #EEEEEE;
+    
+}
+.order_box2{
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    font-size: large;
+}
+.order_box2 span{
+font-size: xx-large;
+font-weight: 600;
+}
+.order_box2 input{
+    border: 2px solid #3F6E89;
+    padding: 5px;
+    background-color: #eeee;
+    border-radius: 10px;
+
+}
+.order_box2 select
+{
+    border: 2px solid #3F6E89;
+    padding: 5px;
+    background-color: #eeee;
+    border-radius: 10px;
+}
