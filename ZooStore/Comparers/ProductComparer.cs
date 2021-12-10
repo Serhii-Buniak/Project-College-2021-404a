@@ -3,7 +3,7 @@ using ZooStore.Models;
 
 namespace ZooStore.Comparers
 {
-    public class PeopleComparerByPriceAscending : IComparer<Product>
+    public class ProductComparerByPriceAscending : IComparer<Product>
     {
         public int Compare(Product p1, Product p2)
         {
@@ -15,7 +15,7 @@ namespace ZooStore.Comparers
                 return 0;
         }
     }
-    public class PeopleComparerByPriceDescending : IComparer<Product>
+    public class ProductComparerByPriceDescending : IComparer<Product>
     {
         public int Compare(Product p1, Product p2)
         {

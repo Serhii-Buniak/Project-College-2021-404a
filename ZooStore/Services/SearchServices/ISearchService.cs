@@ -2,7 +2,7 @@
 using System.Text;
 using ZooStore.Models;
 
-namespace ZooStore.Services.Search
+namespace ZooStore.Services.SearchServices
 {
     public interface ISearchService
     {

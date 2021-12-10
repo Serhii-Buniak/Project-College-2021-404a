@@ -1,6 +1,6 @@
 ﻿using ZooStore.Models;
 
-namespace ZooStore.Services.Search
+namespace ZooStore.Services.SearchServices
 {
     public partial class SearchService
     {

@@ -1,0 +1,43 @@
+﻿@model LoginModel
+
+<div class="all">
+    <div class="menuimg">
+        <img src="/img/pets.png" alt="pets">
+    </div>
+
+    <div class="main">
+        <div class="main1">
+            <span style="font-size: xx-large;"> <b>Вхід</b> </span>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div asp-validation-summary="ModelOnly"></div>
+    <form class="sing-up__form" asp-action="Login" method="post">
+        <div class="login_box">
+            <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+
+            <div class="input-validation-error-el">
+                <span asp-validation-for="Email"></span>
+            </div>
+            <input placeholder="E-mail" asp-for="Email">
+
+            <div class="input-validation-error-el">
+                <span asp-validation-for="Password"></span>
+            </div>
+            <input placeholder="Пароль" asp-for="Password">
+        </div>
+        <div class="login_action">
+            <button type="submit">ВХІД</button>
+
+            <p>У вас немає акаунта? <a href="">Зареєструватися</a></p>
+            <p>Забули пароль? <a href="">Відновити</a></p>
+
+            <p>
+                <a href=""><img src="./img/google.png" alt=""></a>
+                <a href=""><img src="./img/facebook.png" alt=""></a>
+            </p>
+
+        </div>
+    </form>
+</div>
+<div class="clear"></div>

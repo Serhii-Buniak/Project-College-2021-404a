@@ -1,0 +1,22 @@
+﻿@model AppUser
+
+<div><h2>Edit User</h2></div>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action="Edit" method="post">
+    <div>
+        <label asp-for="Id" ></label>
+        <input asp-for="Id" />
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input name="password" id="password"/>
+    </div>
+    <button type="submit">Save</button>
+    <a asp-action="UserList">Cancel</a>
+</form>

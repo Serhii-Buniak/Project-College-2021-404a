@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ZooStore.Controllers.Extensions;
 using ZooStore.Models;
 
-namespace ZooStore.Services.Search
+namespace ZooStore.Services.SearchServices
 {
     public partial class SearchService : ISearchService
     {

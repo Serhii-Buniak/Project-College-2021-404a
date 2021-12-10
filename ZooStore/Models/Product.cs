@@ -11,6 +11,7 @@ namespace ZooStore.Models
     {
         [ScaffoldColumn(false), Key]
         public Guid Id { get; init; }
+
         [Required]
         public string Name { get; set; }
 
@@ -18,6 +19,7 @@ namespace ZooStore.Models
         [Column(TypeName = "money")]
         [Required]
         public decimal Price { get; set; }
+
         [Required]
         public string Description { get; set; }
 
@@ -27,6 +29,7 @@ namespace ZooStore.Models
 
         [Required(ErrorMessage = "Please choose picture")]
         public string Picture { get; set; }
+
 
         [NotMapped]
         public string this[string key] => Properties.First(p => p.Key == key).Value;

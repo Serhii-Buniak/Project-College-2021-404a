@@ -9,7 +9,6 @@ namespace ZooStore.Data
            : base(options) { }
 
         public DbSet<Product> Products { get; set; }
-
         public DbSet<Category> Categories { get; set; }
         public DbSet<Subcategory> Subcategories { get; set; }
     }

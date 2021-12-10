@@ -1,0 +1,17 @@
+﻿@model Dictionary<string, object>
+
+<div><h4>User Details</h4></div>
+
+<table>
+    @foreach (var kvp in Model)
+    {
+        <tr><th>@kvp</th>@kvp.Value</tr>
+    }
+</table>
+
+@if(User?.Identity?.IsAuthenticated ?? false)
+{
+    <a asp-controller="Account" asp-action="Logout">
+        Logout
+    </a>
+}

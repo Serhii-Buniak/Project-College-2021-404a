@@ -24,7 +24,7 @@ namespace ZooStore.Models.Repositories
             //context.Categories.Add(new Category { Name = "Тварини" });
             //context.SaveChanges();
 
-            //context.Subcategories.Add(new Subcategory { Name = "Їжа для собак", Category = context.Categories.First(c => c.Name == "Їжа")});
+            //context.Subcategories.Add(new Subcategory { Name = "Їжа для собак", Category = context.Categories.First(c => c.Name == "Їжа") });
             //context.Subcategories.Add(new Subcategory { Name = "Їжа для гризунів", Category = context.Categories.First(c => c.Name == "Їжа") });
             //context.Subcategories.Add(new Subcategory { Name = "Їжа для риб", Category = context.Categories.First(c => c.Name == "Їжа") });
 
@@ -39,7 +39,7 @@ namespace ZooStore.Models.Repositories
             //context.Subcategories.Add(new Subcategory { Name = "Рибки", Category = context.Categories.First(c => c.Name == "Тварини") });
             //context.Subcategories.Add(new Subcategory { Name = "Папуги", Category = context.Categories.First(c => c.Name == "Тварини") });
 
-            //context.Subcategories.Add(new Subcategory { Name = "Їжа для кішок", Category = context.Categories.First(c => c.Name == "Їжа")});
+            //context.Subcategories.Add(new Subcategory { Name = "Їжа для кішок", Category = context.Categories.First(c => c.Name == "Їжа") });
             //context.SaveChanges();
             //context.Products.Add(new Product()
             //{
@@ -70,7 +70,7 @@ namespace ZooStore.Models.Repositories
             //    }
             //});
 
-            context.SaveChanges();
+            //context.SaveChanges();
             //context.Categories.AddRange(new Category[]
             //{
             //    new Category{ Name = "Їжа для кіщок"},

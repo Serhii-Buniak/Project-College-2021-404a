@@ -8,8 +8,8 @@ using Microsoft.Extensions.Hosting;
 using ZooStore.Data;
 using ZooStore.Models;
 using ZooStore.Models.Repositories;
-using ZooStore.Services.Search;
-
+using ZooStore.Services.CartServices;
+using ZooStore.Services.SearchServices;
 namespace ZooStore
 {
     public class Startup
@@ -33,15 +33,25 @@ namespace ZooStore
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<AppUser, IdentityRole>(opts =>
+            {
+                opts.User.RequireUniqueEmail = true;
+                opts.Password.RequiredLength = 6;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<ApplicationDbContext>()
+              .AddDefaultTokenProviders();
+
             services.AddControllersWithViews();
 
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddTransient<ICategoryRepository, EFCategoryRepository>();
             services.AddTransient<ISubcategoryRepository, EFSubcategoryRepository>();
-            services.AddTransient<ISearchService, SearchService>();
 
+            services.AddSingleton<ISearchService, SearchService>();
+            services.AddSingleton<ICartService, CartService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,10 +81,10 @@ namespace ZooStore
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}");
-                endpoints.MapRazorPages();
             });
-            
-          SeedData.EnsurePopulated(app);
+
+            ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
+         // SeedData.EnsurePopulated(app);
         }
     }
 }

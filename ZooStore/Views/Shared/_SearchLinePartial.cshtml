@@ -1,4 +1,8 @@
-﻿<div class="top_sr">
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<div class="top_sr">
     <div class="sr_l">
         <a asp-controller="Home" asp-action="Index">
             <img src="/img/icons/logo.svg" alt="">
@@ -20,17 +24,18 @@
                     <option>sheba lux</option>
                     <option>корм для котів</option>
                     <option>шеба</option>
-                    <option>митм</option>    <option>авцец</option>
+                    <option>митм</option>
+                    <option>авцец</option>
                     <option>вап</option>
                     <option>орпукену</option>
                     <option>вып ба</option>
                     <option>пв</option>
-                     <option>куцй</option>
+                    <option>куцй</option>
                     <option>пав</option>
                     <option>аыв ба</option>
                     <option>фпа</option>
-                       <option>цуке</option>
-                     <option>пр</option>
+                    <option>цуке</option>
+                    <option>пр</option>
                     <option>пав</option>
                     <option>аыв ба</option>
                     <option>фпа</option>
@@ -41,6 +46,17 @@
 
     <div class="sr_r">
         <a href=""><img src="/img/icons/like.png" alt="favourite"></a>
-        <a href=""><img src="/img/icons/profile.png" alt="me"></a>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <a asp-controller="Account" asp-action="Login"><img src="/img/icons/profile.png" style="background-color: green" alt="me"></a>
+             @User.Identity.Name
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login"><img src="/img/icons/profile.png" style="background-color: red" alt="me"></a> 
+           
+        }
+
+
     </div>
 </div>

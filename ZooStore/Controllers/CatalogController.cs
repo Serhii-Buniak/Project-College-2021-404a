@@ -11,13 +11,13 @@ using ZooStore.Models.ViewModels;
 
 namespace ZooStore.Controllers
 {
-    public class UploadController : Controller
+    public class CatalogController : Controller
     {
         private readonly IProductRepository _productRepository;
         private readonly ISubcategoryRepository _subcategoryRepository;
         private readonly IWebHostEnvironment _env;
-        private SelectList SelectListSubcategories => new(_subcategoryRepository.Items, "Id", "Name");
-        public UploadController(IProductRepository productRepository, ISubcategoryRepository subcategoryRepository, IWebHostEnvironment env)
+        private SelectList SelectListSubcategories => new(_subcategoryRepository.Subcategories, "Id", "Name");
+        public CatalogController(IProductRepository productRepository, ISubcategoryRepository subcategoryRepository, IWebHostEnvironment env)
         {
             _productRepository = productRepository;
             _subcategoryRepository = subcategoryRepository;
@@ -46,7 +46,7 @@ namespace ZooStore.Controllers
                     Description = model.Description,
                     Picture = uniqueFileName,
                     Properties = model.Properties,
-                    Subcategory = _subcategoryRepository.Items.First(m => m.Id == model.SubcategoryId)
+                    Subcategory = _subcategoryRepository.Subcategories.First(m => m.Id == model.SubcategoryId)
                 });
 
                 return RedirectToAction(nameof(Index));
@@ -69,7 +69,7 @@ namespace ZooStore.Controllers
                 uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                using (FileStream fileStream = new(filePath, FileMode.Create))
                 {
                     await model.Image.CopyToAsync(fileStream);
                 }

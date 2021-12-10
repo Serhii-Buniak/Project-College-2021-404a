@@ -7,22 +7,22 @@ using ZooStore.Comparers;
 using ZooStore.Models;
 using ZooStore.Models.Repositories;
 using ZooStore.Models.ViewModels;
-using ZooStore.Services.Search;
+using ZooStore.Services.SearchServices;
 
 namespace ZooStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IReadOnlyRepository<Category> _categoryRepository;
-        private readonly IReadOnlyRepository<Subcategory> _subcategoryRepository;
-        private readonly IReadOnlyRepository<Product> _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly ISubcategoryRepository _subcategoryRepository;
+        private readonly IProductRepository _productRepository;
 
         private readonly ISearchService _searchService;
 
         private readonly static IDictionary<string, IComparer<Product>> _productComparers = new Dictionary<string, IComparer<Product>>()
         {
-            ["Від дорогих до дешевих"] = new PeopleComparerByPriceDescending(),
-            ["Від дешевих до дорогих"] = new PeopleComparerByPriceAscending(),
+            ["Від дорогих до дешевих"] = new ProductComparerByPriceDescending(),
+            ["Від дешевих до дорогих"] = new ProductComparerByPriceAscending(),
         };
 
         public const int pageSize = 1;
@@ -38,7 +38,7 @@ namespace ZooStore.Controllers
         {
             Dictionary<string, IEnumerable<Subcategory>> dictionary = new();
 
-            foreach (var category in _categoryRepository.Items)
+            foreach (var category in _categoryRepository.Categories)
             {
                 dictionary.Add(category.Name, category.Subcategories);
             }
@@ -48,7 +48,7 @@ namespace ZooStore.Controllers
         [ActionName("Product")]
         public IActionResult ShowProduct(Guid id)
         {
-            Product product = _productRepository.Items.FirstOrDefault(p => p.Id == id);
+            Product product = _productRepository.Products.FirstOrDefault(p => p.Id == id);
             if (product is not null)
             {
                 return View(product);
@@ -62,7 +62,7 @@ namespace ZooStore.Controllers
 
         public IActionResult Search(Guid? subcategoryId, string comparer, decimal? minPrice, decimal? maxPrice, string search, int page = 1)
         {
-            IEnumerable<Product> products = _productRepository.Items
+            IEnumerable<Product> products = _productRepository.Products
                 .Where(p => subcategoryId == null || p.Subcategory.Id == subcategoryId)
                 .Where(p => minPrice == null || p.Price >= minPrice)
                 .Where(p => maxPrice == null || p.Price <= maxPrice);
@@ -83,7 +83,7 @@ namespace ZooStore.Controllers
                     TotalItems = products.Count(),
                 },
                 SubcategoryId = subcategoryId,
-                SubcategoriesList = new SelectList(_subcategoryRepository.Items, "Id", "Name", subcategoryId),
+                SubcategoriesList = new SelectList(_subcategoryRepository.Subcategories, "Id", "Name", subcategoryId),
                 ComparersList = new SelectList(_productComparers.Keys, comparer),
                 SearchText = search,
                 MinPrice = products?.Min(p => p.Price),
