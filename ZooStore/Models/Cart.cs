@@ -6,9 +6,10 @@ namespace ZooStore.Models
 {
     public class Cart
     {
-        [Key, ForeignKey("AppUser")]
+        [Key]
         public int Id { get; set; }
-        public ICollection<Product> Products { get; set; }
+        public string AppUserId { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 
 }

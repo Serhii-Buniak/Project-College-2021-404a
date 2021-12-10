@@ -15,12 +15,18 @@ namespace ZooStore.Models.Repositories
         {
             _context = context;
         }
-        public IQueryable<Product> Items => _context.Products;
+        public IQueryable<Product> Products => _context.Products;
+
 
         public void Add(Product product)
         {
             _context.Products.Add(product);
             _context.SaveChanges();
+        }
+
+        public Product FindByIdAsync(Guid id)
+        {
+            return _context.Products.Find(id);
         }
     }
 

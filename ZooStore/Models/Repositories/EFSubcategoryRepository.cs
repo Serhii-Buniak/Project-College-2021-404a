@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using ZooStore.Data;
 
 namespace ZooStore.Models.Repositories
@@ -12,12 +13,17 @@ namespace ZooStore.Models.Repositories
             _context = context;
         }
 
-        public IQueryable<Subcategory> Items => _context.Subcategories;
+        public IQueryable<Subcategory> Subcategories => _context.Subcategories;
 
         public void Add(Subcategory subcategory)
         {
             _context.Subcategories.Add(subcategory);
             _context.SaveChanges();
+        }
+
+        public Subcategory FindByIdAsync(Guid id)
+        {
+            return _context.Subcategories.Find(id);
         }
     }
 

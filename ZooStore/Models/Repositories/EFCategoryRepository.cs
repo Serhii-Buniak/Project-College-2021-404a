@@ -20,11 +20,11 @@ namespace ZooStore.Models.Repositories
             _context.Categories.Add(category);
             _context.SaveChanges();
         }
-        //TODO: IT
-        //public async Category FindByIdAsync(Guid id)
-        //{
-        //    return await _context.
-        //}
+
+        public Category FindByIdAsync(Guid id)
+        {
+            return _context.Categories.Find(id);
+        }
     }
 
 }

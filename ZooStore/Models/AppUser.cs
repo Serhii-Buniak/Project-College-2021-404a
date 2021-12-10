@@ -8,7 +8,6 @@ namespace ZooStore.Models
         [Required]
         [PersonalData]
         public string FullName { get; set; }
-
-        public Cart Cart { get; set; }
+        public virtual Cart Cart { get; set; }
     }
 }

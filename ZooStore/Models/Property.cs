@@ -12,7 +12,6 @@ namespace ZooStore.Models
         public string Key { get; set; }
         [Required]
         public string Value { get; set; }
-
         [ForeignKey("ProductId")]
         public virtual Product Product { get; set; }
 

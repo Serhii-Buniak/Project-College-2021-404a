@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZooStore.Data;
 
 namespace ZooStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211210085918_CartMigration2")]
+    partial class CartMigration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -158,6 +160,9 @@ namespace ZooStore.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CartId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -208,6 +213,8 @@ namespace ZooStore.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CartId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -226,14 +233,7 @@ namespace ZooStore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId")
-                        .IsUnique()
-                        .HasFilter("[AppUserId] IS NOT NULL");
 
                     b.ToTable("Cart");
                 });
@@ -384,11 +384,13 @@ namespace ZooStore.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ZooStore.Models.Cart", b =>
+            modelBuilder.Entity("ZooStore.Models.AppUser", b =>
                 {
-                    b.HasOne("ZooStore.Models.AppUser", null)
-                        .WithOne("Cart")
-                        .HasForeignKey("ZooStore.Models.Cart", "AppUserId");
+                    b.HasOne("ZooStore.Models.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId");
+
+                    b.Navigation("Cart");
                 });
 
             modelBuilder.Entity("ZooStore.Models.Product", b =>
@@ -422,11 +424,6 @@ namespace ZooStore.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("ZooStore.Models.AppUser", b =>
-                {
-                    b.Navigation("Cart");
                 });
 
             modelBuilder.Entity("ZooStore.Models.Cart", b =>
