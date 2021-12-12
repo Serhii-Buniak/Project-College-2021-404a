@@ -9,9 +9,9 @@ namespace ZooStore.Models.Repositories
 {
     public class EFProductRepository : IProductRepository
     {
-        private readonly StoreDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EFProductRepository(StoreDbContext context)
+        public EFProductRepository(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -24,9 +24,9 @@ namespace ZooStore.Models.Repositories
             _context.SaveChanges();
         }
 
-        public Product FindByIdAsync(Guid id)
+        public async Task<Product> FindByIdAsync(long id)
         {
-            return _context.Products.Find(id);
+            return await _context.Products.FindAsync(id);
         }
     }
 

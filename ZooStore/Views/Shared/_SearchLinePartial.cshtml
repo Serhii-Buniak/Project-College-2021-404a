@@ -45,7 +45,7 @@
     </div>
 
     <div class="sr_r">
-        <a href=""><img src="/img/icons/like.png" alt="favourite"></a>
+        <a asp-controller="Cart" asp-action="Index"><img src="/img/icons/like.png" alt="favourite"></a>
         @if (SignInManager.IsSignedIn(User))
         {
             <a asp-controller="Account" asp-action="Login"><img src="/img/icons/profile.png" style="background-color: green" alt="me"></a>
@@ -53,10 +53,7 @@
         }
         else
         {
-            <a asp-controller="Account" asp-action="Login"><img src="/img/icons/profile.png" style="background-color: red" alt="me"></a> 
-           
+            <a asp-controller="Account" asp-action="Login"><img src="/img/icons/profile.png" style="background-color: red" alt="me"></a>   
         }
-
-
     </div>
 </div>

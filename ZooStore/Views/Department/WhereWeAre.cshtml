@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Department>
+
+@{
+    ViewData["Title"] = "Де ми";
+}
+
+<div class="all">
+    <div class="menuimg">
+        <img src="/img/pets.png" alt="pets">
+    </div>
+    <div class="main">
+        <div class="main1">
+            <span style="font-size: xx-large;"> <b>Де нас знайти?</b> </span>
+        </div>
+    </div>
+    <div class="line"></div>
+</div>
+
+<div class="all">
+    <div class="where-we__main2">
+        <span>У нас @Model.Count() магазинів</span> <br>
+        <span>Виберайте найзручніший та заходьте</span>
+    </div>
+    <div class="where-we__main3">
+        <span>Адреси:</span>
+    </div>
+    <div class="where-we__main3_l">
+        <ul>
+            @foreach (Department departament in Model)
+            {
+                <li>
+                    <span>@departament.Name</span>
+                    <p>@departament.WorkTime</p>
+                </li>
+            }       
+        </ul>
+    </div>
+</div>
+<div class="clear"></div>

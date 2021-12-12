@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using ZooStore.Data;
 using ZooStore.Models;
 using ZooStore.Models.Repositories;
-using ZooStore.Services.CartServices;
+using ZooStore.Services.EmailServices;
 using ZooStore.Services.SearchServices;
 namespace ZooStore
 {
@@ -24,12 +24,15 @@ namespace ZooStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var emailConfig = Configuration
+                .GetSection("EmailConfiguration")
+                .Get<EmailConfiguration>();
+            services.AddSingleton(emailConfig);
 
-            services.AddDbContext<StoreDbContext>(options =>
-                 options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("MyZooStoreContextConnection")));
+            services.AddScoped<IEmailSender, EmailSender>();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("MyZooStoreContextConnection")));
+                 options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("MyZooStoreContextConnection")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -49,9 +52,11 @@ namespace ZooStore
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddTransient<ICategoryRepository, EFCategoryRepository>();
             services.AddTransient<ISubcategoryRepository, EFSubcategoryRepository>();
+            services.AddTransient<IDepartmentRepository, EFDepartmentRepository>();
+            services.AddTransient<IOrderRepository, EFOrderRepository>();
+            services.AddTransient<ICartRepository, EFCartRepository>();
 
             services.AddSingleton<ISearchService, SearchService>();
-            services.AddSingleton<ICartService, CartService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,8 +88,8 @@ namespace ZooStore
                     pattern: "{controller=Home}/{action=Index}");
             });
 
-            ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
-         // SeedData.EnsurePopulated(app);
+         //   ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
+//SeedData.EnsurePopulated(app);
         }
     }
 }

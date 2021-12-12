@@ -83,10 +83,11 @@ namespace ZooStore.Controllers
             {
                 AppUser user = new()
                 {
-                    UserName = registerModel.FullName.Replace(' ', '-'),
+                    UserName = registerModel.Email.Remove(registerModel.Email.IndexOf('@')),
                     FullName = registerModel.FullName,
                     Email = registerModel.Email,
-                    PhoneNumber = registerModel.PhoneNumber
+                    PhoneNumber = registerModel.PhoneNumber,
+                    Cart = new Cart()
                 };
                 IdentityResult result = await _userManager.CreateAsync(user, registerModel.Password);
 

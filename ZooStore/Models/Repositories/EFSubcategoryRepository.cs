@@ -6,9 +6,9 @@ namespace ZooStore.Models.Repositories
 {
     public class EFSubcategoryRepository : ISubcategoryRepository
     {
-        private readonly StoreDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EFSubcategoryRepository(StoreDbContext context)
+        public EFSubcategoryRepository(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -21,7 +21,7 @@ namespace ZooStore.Models.Repositories
             _context.SaveChanges();
         }
 
-        public Subcategory FindByIdAsync(Guid id)
+        public Subcategory FindByIdAsync(long id)
         {
             return _context.Subcategories.Find(id);
         }

@@ -11,13 +11,16 @@ namespace ZooStore.Models.ViewModels
         [Required]
         public string Name { get; set; }
         [Required]
+
         public decimal Price { get; set; }
         [Required]
         public string Description { get; set; }
         [Required]
-        public Guid SubcategoryId { get; set; }
+        public long SubcategoryId { get; set; }
         [Required]
         public IList<Property> Properties { get; set; }
+
+        public bool Unique { get; set; }
 
         [Required(ErrorMessage = "Please choose profile image")]
         [Display(Name = "Product Picture")]

@@ -1,7 +1,12 @@
 ﻿@model Product
+@inject ICartRepository Cart
+@inject UserManager<AppUser> UserManager
+@inject SignInManager<AppUser> SignInManager
+
 @{
     ViewData["Title"] = "Каталог";
 }
+
 <link rel="stylesheet" href="/product/css/product.css">
 <main class="content">
     <div class="all">
@@ -12,7 +17,7 @@
         <div class="main">
             <div class="main1">
                 <span style="font-size: xx-large;"> <b>@Model.Subcategory.Name</b> </span>
-             
+
             </div>
         </div>
         <div class="line"></div>
@@ -20,19 +25,35 @@
         <div class="product__main2">
             <div class="product__main2_l">
                 <img src="/upload/@Model.Picture" alt="">
+
             </div>
             <div class="product__main2_r">
                 <div class="product__main2_r1">
                     <span>
-                        @Model.Name 
+                        @Model.Name
                     </span>
                 </div>
                 <div class="product__main2_r2">
                     <p>@String.Format("{0:f0}", Model.Price)₴</p>
 
-               
-                    <button>Замовити</button>
-                    <img src="/img/icons/like.png" alt="">
+                    <form method="get" asp-controller="Order" asp-action="Create">
+                        <input hidden name="orderDetails[0].ProductId" value="@Model.Id"/>
+                        <input hidden name="orderDetails[0].Quantity" value="1"/>
+                        <button>Замовити</button>
+                    </form>
+
+                    @if (SignInManager.IsSignedIn(User) && @Cart.Contains(Model, (await UserManager.GetUserAsync(User))))
+                    {
+                        <a asp-controller="Cart" asp-action="RemoveProduct" asp-route-Id="@Model.Id">
+                            <img src="/img/icons/likeChecked.png" alt="">
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Cart" asp-action="AddProduct" asp-route-Id="@Model.Id">
+                            <img src="/img/icons/like.png" alt="">
+                        </a>
+                    }
                     <div class="clear"></div>
                 </div>
                 <div class="product__main2_r3">
@@ -72,4 +93,3 @@
     </div>
     <div class="clear"></div>
 </main>
-<p>@Model.Id</p>

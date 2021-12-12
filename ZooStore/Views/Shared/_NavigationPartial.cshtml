@@ -1,6 +1,23 @@
-﻿<div class="top_menu">
-     <a class="nav-element" asp-controller="Home" asp-action="Index">Головна</a>
+﻿@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+@{
+    AppUser appUser = await UserManager.GetUserAsync(User);
+}
+<div class="top_menu">
+    <a class="nav-element" asp-controller="Home" asp-action="Index">Головна</a>
     <a class="nav-element" asp-controller="Home" asp-action="Search">Каталог</a>
     <a class="nav-element" asp-controller="Home" asp-action="WhyWeAre">Чому ми?</a>
-    <a class="nav-element" asp-controller="Home" asp-action="WhereWeAre">Де ми?</a>
+    <a class="nav-element" asp-controller="Department" asp-action="WhereWeAre">Де ми?</a>
+
+
+    @if (appUser != null && await UserManager.IsInRoleAsync(appUser, "Admin"))
+    {
+        <a class="nav-element" asp-controller="Catalog" asp-action="Create">Створити товар</a>
+    }
+
+
+
+
+
+
 </div>

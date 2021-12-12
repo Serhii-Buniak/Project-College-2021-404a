@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -11,6 +12,7 @@ using ZooStore.Models.ViewModels;
 
 namespace ZooStore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CatalogController : Controller
     {
         private readonly IProductRepository _productRepository;
@@ -44,6 +46,7 @@ namespace ZooStore.Controllers
                     Name = model.Name,
                     Price = model.Price,
                     Description = model.Description,
+                    Unique = model.Unique,
                     Picture = uniqueFileName,
                     Properties = model.Properties,
                     Subcategory = _subcategoryRepository.Subcategories.First(m => m.Id == model.SubcategoryId)

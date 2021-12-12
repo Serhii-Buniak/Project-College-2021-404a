@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ZooStore.Models;
+using ZooStore.Models.Repositories;
 
 namespace ZooStore.Services.SearchServices
 {
@@ -10,18 +11,18 @@ namespace ZooStore.Services.SearchServices
     {
         public IEnumerable<Product> GetSerchedProducts(IEnumerable<Product> products, string searchText)
         {
-            List<ProductAndPriority> productsSet = new();
+            List<ProductAndPriority> productsList = new();
 
             foreach (Product product in products)
             {
                 ProductAndPriority productPriority = TryGetProductAndPriority(product, GetInfoToFind(product), searchText);
                 if (productPriority is not null)
                 {
-                    productsSet.Add(productPriority);
+                    productsList.Add(productPriority);
                 }
             }
 
-            return productsSet.Where(p => p.Priority != 0).OrderByDescending(p => p.Priority).Select(p => p.Product);
+            return productsList.Where(p => p.Priority != 0).OrderByDescending(p => p.Priority).Select(p => p.Product);
         }
 
 

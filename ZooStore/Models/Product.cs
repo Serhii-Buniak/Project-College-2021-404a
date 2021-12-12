@@ -10,7 +10,7 @@ namespace ZooStore.Models
     public class Product
     {
         [ScaffoldColumn(false), Key]
-        public Guid Id { get; init; }
+        public long Id { get; init; }
 
         [Required]
         public string Name { get; set; }
@@ -30,12 +30,12 @@ namespace ZooStore.Models
         [Required(ErrorMessage = "Please choose picture")]
         public string Picture { get; set; }
 
-
         [NotMapped]
         public string this[string key] => Properties.First(p => p.Key == key).Value;
 
         [NotMapped]
         public Category Category => Subcategory.Category;
+        public bool Unique { get; set; }
         public override int GetHashCode()
         {
             return Id.GetHashCode();

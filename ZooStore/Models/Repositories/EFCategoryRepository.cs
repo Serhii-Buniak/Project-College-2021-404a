@@ -6,9 +6,9 @@ namespace ZooStore.Models.Repositories
 {
     public class EFCategoryRepository : ICategoryRepository
     {
-        private readonly StoreDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EFCategoryRepository(StoreDbContext context)
+        public EFCategoryRepository(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -21,7 +21,7 @@ namespace ZooStore.Models.Repositories
             _context.SaveChanges();
         }
 
-        public Category FindByIdAsync(Guid id)
+        public Category FindByIdAsync(long id)
         {
             return _context.Categories.Find(id);
         }

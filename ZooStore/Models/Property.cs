@@ -7,7 +7,7 @@ namespace ZooStore.Models
     public class Property
     {
         [ScaffoldColumn(false), Key]
-        public Guid Id { get; init; }
+        public long Id { get; init; }
         [Required]
         public string Key { get; set; }
         [Required]

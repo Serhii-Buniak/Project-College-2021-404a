@@ -13,34 +13,49 @@ namespace ZooStore.Models.Repositories
     {
         public static void EnsurePopulated(IApplicationBuilder app)
         {
-            StoreDbContext context = app.ApplicationServices
-      .GetRequiredService<StoreDbContext>();
-            ApplicationDbContext context2 = app.ApplicationServices
-     .GetRequiredService<ApplicationDbContext>();
-            context.Database.Migrate();
+            ApplicationDbContext context = app.ApplicationServices
+      .GetRequiredService<ApplicationDbContext>();
 
-            //context.Categories.Add(new Category { Name = "Їжа" });
-            //context.Categories.Add(new Category { Name = "Аксесуари" });
-            //context.Categories.Add(new Category { Name = "Тварини" });
-            //context.SaveChanges();
 
-            //context.Subcategories.Add(new Subcategory { Name = "Їжа для собак", Category = context.Categories.First(c => c.Name == "Їжа") });
-            //context.Subcategories.Add(new Subcategory { Name = "Їжа для гризунів", Category = context.Categories.First(c => c.Name == "Їжа") });
-            //context.Subcategories.Add(new Subcategory { Name = "Їжа для риб", Category = context.Categories.First(c => c.Name == "Їжа") });
+            //context.Addresses.Add(new Address {  });
+            context.Categories.Add(new Category { Name = "Їжа" });
+            context.Categories.Add(new Category { Name = "Тварини" });
+            context.Categories.Add(new Category { Name = "Аксесуари" });
+            context.SaveChanges();
 
-            //context.Subcategories.Add(new Subcategory { Name = "Акваріуми", Category = context.Categories.First(c => c.Name == "Аксесуари") });
-            //context.Subcategories.Add(new Subcategory { Name = "Клітки для гризунів", Category = context.Categories.First(c => c.Name == "Аксесуари") });
-            //context.Subcategories.Add(new Subcategory { Name = "Будиночки для соак і кішобк", Category = context.Categories.First(c => c.Name == "Аксесуари") });
-            //context.Subcategories.Add(new Subcategory { Name = "Годівниці для собак і кішок", Category = context.Categories.First(c => c.Name == "Аксесуари") });
-            //context.Subcategories.Add(new Subcategory { Name = "Миски для собак і кішок", Category = context.Categories.First(c => c.Name == "Аксесуари") });
+            context.Subcategories.Add(new Subcategory { Name = "Їжа для собак", Category = context.Categories.First(c => c.Name == "Їжа") });
+            context.Subcategories.Add(new Subcategory { Name = "Їжа для гризунів", Category = context.Categories.First(c => c.Name == "Їжа") });
+            context.Subcategories.Add(new Subcategory { Name = "Їжа для риб", Category = context.Categories.First(c => c.Name == "Їжа") });
 
-            //context.Subcategories.Add(new Subcategory { Name = "Кішки", Category = context.Categories.First(c => c.Name == "Тварини") });
-            //context.Subcategories.Add(new Subcategory { Name = "Гризуни", Category = context.Categories.First(c => c.Name == "Тварини") });
-            //context.Subcategories.Add(new Subcategory { Name = "Рибки", Category = context.Categories.First(c => c.Name == "Тварини") });
-            //context.Subcategories.Add(new Subcategory { Name = "Папуги", Category = context.Categories.First(c => c.Name == "Тварини") });
+            context.Subcategories.Add(new Subcategory { Name = "Акваріуми", Category = context.Categories.First(c => c.Name == "Аксесуари") });
+            context.Subcategories.Add(new Subcategory { Name = "Клітки для гризунів", Category = context.Categories.First(c => c.Name == "Аксесуари") });
+            context.Subcategories.Add(new Subcategory { Name = "Будиночки для соак і кішобк", Category = context.Categories.First(c => c.Name == "Аксесуари") });
+            context.Subcategories.Add(new Subcategory { Name = "Годівниці для собак і кішок", Category = context.Categories.First(c => c.Name == "Аксесуари") });
+            context.Subcategories.Add(new Subcategory { Name = "Миски для собак і кішок", Category = context.Categories.First(c => c.Name == "Аксесуари") });
 
-            //context.Subcategories.Add(new Subcategory { Name = "Їжа для кішок", Category = context.Categories.First(c => c.Name == "Їжа") });
-            //context.SaveChanges();
+            context.Subcategories.Add(new Subcategory { Name = "Кішки", Category = context.Categories.First(c => c.Name == "Тварини") });
+            context.Subcategories.Add(new Subcategory { Name = "Гризуни", Category = context.Categories.First(c => c.Name == "Тварини") });
+            context.Subcategories.Add(new Subcategory { Name = "Рибки", Category = context.Categories.First(c => c.Name == "Тварини") });
+            context.Subcategories.Add(new Subcategory { Name = "Папуги", Category = context.Categories.First(c => c.Name == "Тварини") });
+
+            context.Subcategories.Add(new Subcategory { Name = "Їжа для кішок", Category = context.Categories.First(c => c.Name == "Їжа") });
+            context.SaveChanges();
+
+            context.Departments.Add(new Department { Name = "м. Чернівці, вул. Героїв Майдану, 119", WorkTime = "Пн-Сб: 9:00-18:00" });
+            context.Departments.Add(new Department { Name = "м. Чернівці, вул. Герцана, 6", WorkTime = "Пн-Сб: 9:00-18:00" });
+            context.Departments.Add(new Department { Name = "м. Чернівці, вул. Шевченка, 78", WorkTime = "Пн-Сб: 9:00-18:00" });
+            context.Departments.Add(new Department { Name = "м. Чернівці, вул. Небесної сотні, 14", WorkTime = "Пн-Сб: 9:00-18:00" });
+            context.Departments.Add(new Department { Name = "м. Чернівці, вул. Кармелюка, 54", WorkTime = "Пн-Сб: 9:00-18:00" });
+            context.Departments.Add(new Department { Name = "м. Чернівці, вул. Руська, 234", WorkTime = "Пн-Сб: 9:00-18:00" });
+            context.Departments.Add(new Department { Name = "м. Чернівці, проспект Незалежності, 21", WorkTime = "Пн-Сб: 9:00-18:00" });
+            context.Departments.Add(new Department { Name = "м. Чернівці, вул. Садова, 3", WorkTime = "Пн-Сб: 9:00-18:00" });
+            context.Departments.Add(new Department { Name = "м. Чернівці, вул. Південно-Кільцева, 25б", WorkTime = "Пн-Сб: 9:00-18:00" });
+            context.Departments.Add(new Department { Name = "м. Чернівці, вул. Головна, 265а", WorkTime = "Пн-Сб: 9:00-18:00" });
+
+
+            context.SaveChanges();
+
+
             //context.Products.Add(new Product()
             //{
             //    Name = "1FSDGJS:LKGJFS1",

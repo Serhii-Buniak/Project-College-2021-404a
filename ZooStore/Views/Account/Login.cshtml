@@ -29,13 +29,10 @@
         <div class="login_action">
             <button type="submit">ВХІД</button>
 
-            <p>У вас немає акаунта? <a href="">Зареєструватися</a></p>
-            <p>Забули пароль? <a href="">Відновити</a></p>
+            <p>У вас немає акаунта? <a asp-action="SingUp" asp-route-returnUrl="@ViewBag.ReturnUrl">Зареєструватися</a></p>
+          
 
-            <p>
-                <a href=""><img src="./img/google.png" alt=""></a>
-                <a href=""><img src="./img/facebook.png" alt=""></a>
-            </p>
+
 
         </div>
     </form>
