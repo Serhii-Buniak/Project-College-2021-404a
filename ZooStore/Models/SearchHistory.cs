@@ -4,6 +4,7 @@
     {
         public long Id { get; set; }
         public string ToFind { get; set; }
-        public AppUser User { get; set; }
+        public long Quantity { get; set; }
+        public virtual AppUser User { get; set; }
     }
 }

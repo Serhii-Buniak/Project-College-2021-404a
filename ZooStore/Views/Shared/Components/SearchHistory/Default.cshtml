@@ -1,0 +1,10 @@
+﻿@model IEnumerable<string>
+
+<datalist id="poshuk">
+    @foreach (var toFind in Model)
+    {
+            <option>@toFind</option>
+
+    }
+
+</datalist>

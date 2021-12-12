@@ -55,6 +55,8 @@ namespace ZooStore
             services.AddTransient<IDepartmentRepository, EFDepartmentRepository>();
             services.AddTransient<IOrderRepository, EFOrderRepository>();
             services.AddTransient<ICartRepository, EFCartRepository>();
+            services.AddTransient<IProductHistoryRepository, EFProductHistoryRepository>();
+            services.AddTransient<ISearchHistoryRepository, EFSearchHistoryRepository>();
 
             services.AddSingleton<ISearchService, SearchService>();
         }
@@ -88,7 +90,7 @@ namespace ZooStore
                     pattern: "{controller=Home}/{action=Index}");
             });
 
-         //   ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
+           // ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
 //SeedData.EnsurePopulated(app);
         }
     }

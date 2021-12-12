@@ -54,7 +54,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot\product\img\" />
     <Folder Include="wwwroot\upload\" />
     <Folder Include="wwwroot\where-we\img\" />

@@ -52,12 +52,12 @@ namespace ZooStore.Controllers
         }
 
         [ActionName("Product")]
-        public IActionResult ShowProduct(long id)
+        public async Task<IActionResult> ShowProduct(long id)
         {
             Product product = _productRepository.Products.FirstOrDefault(p => p.Id == id);
             if (product is not null)
             {
-                AddToProductHistoryAsync(product);
+               await AddToProductHistoryAsync(product);
                 return View(product);
             }
             else
@@ -66,7 +66,7 @@ namespace ZooStore.Controllers
             }
         }
 
-        public IActionResult Search(long? subcategoryId, string comparer, decimal? minPrice, decimal? maxPrice, string search, int page = 1)
+        public async Task<IActionResult> Search(long? subcategoryId, string comparer, decimal? minPrice, decimal? maxPrice, string search, int page = 1)
         {
             IEnumerable<Product> products = _productRepository.Products
                 .Where(p => subcategoryId == null || p.Subcategory.Id == subcategoryId)
@@ -75,7 +75,7 @@ namespace ZooStore.Controllers
 
             if (search is not null)
             {
-                AddToSearchHistoryAsync(search);
+                await AddToSearchHistoryAsync(search);
                 products = _searchService.GetSerchedProducts(products, search);
             }
             if (comparer is not null)
@@ -112,14 +112,14 @@ namespace ZooStore.Controllers
             return View();
         }
 
-        private async void AddToSearchHistoryAsync(string toFind)
+        private async Task AddToSearchHistoryAsync(string toFind)
         {
             AppUser user = await _userManager.GetUserAsync(User);
             await _searchHistory.AddAsync(new SearchHistory { ToFind = toFind, User = user });
         }
 
-        private async void AddToProductHistoryAsync(Product product)
-        {           
+        private async Task AddToProductHistoryAsync(Product product)
+        {                    
             AppUser user = await _userManager.GetUserAsync(User);
             await _productHistory.AddAsync(new ProductHistory { Product = product, User = user });
         }

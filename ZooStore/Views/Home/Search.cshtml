@@ -1,4 +1,6 @@
 ﻿@model ProductListViewModel
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
 @{
     ViewData["Title"] = "Пошук";
 }
@@ -63,35 +65,28 @@
      page-url-subcategoryId="@Model.SubcategoryId" page-url-search="@Model.SearchText" page-url-minPrice="@Model.MinPrice" page-url-maxPrice="@Model.MaxPrice" page-url-comparer="@Model.Comparer"></div>
 
 <div class="clear"></div>
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="search_slider">
 
-<div class="search_slider">
-
-    <span>Недавно переглянуті товариші</span>
+        <span>Недавно переглянуті товариші</span>
 
 
-    <div class="wrapper">
-        <div class="carousel owl-carousel">
-            <div class="search_slider_box">
-                <img src="/search/img/item.png" alt="">
-                <p>Sheba Fine Flakes</p>
-                <span>13,70 ₴</span>
+        <div class="wrapper">
+            <div class="carousel owl-carousel">
+                @foreach (Product product in (await UserManager.GetUserAsync(User)).VisitedProducts.Select(p => p.Product).Reverse().Distinct().Take(4))
+                {
+
+                    <a asp-controller="Home" asp-action="Product" asp-route-id="@product.Id">
+                        <div class="search_slider_box">
+                            <img src="/upload/@product.Picture" alt="">
+                            <p>@product.Name</p>
+                            <span>@String.Format("{0:f0}", product.Price)</span>
+                        </div>
+                    </a>
+
+                }
             </div>
-            <div class="search_slider_box">
-                <img src="/search/img/item.png" alt="">
-                <p>Sheba Fine Flakes</p>
-                <span>13,70 ₴</span>
-            </div>
-            <div class="search_slider_box">
-                <img src="/search/img/item.png" alt="">
-                <p>Sheba Fine Flakes</p>
-                <span>13,70 ₴</span>
-            </div>
-            <div class="search_slider_box">
-                <img src="/search/img/item.png" alt="">
-                <p>Sheba Fine Flakes</p>
-                <span>13,70 ₴</span>
-            </div>
-
         </div>
     </div>
-</div>
+}

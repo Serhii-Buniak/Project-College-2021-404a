@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ZooStore.Models
 {
-    public class Product
+    public class Product : IEquatable<Product>
     {
         [ScaffoldColumn(false), Key]
         public long Id { get; init; }
@@ -43,8 +43,12 @@ namespace ZooStore.Models
 
         public override bool Equals(object obj)
         {
-            return Id.Equals(((Product)obj).Id);
+            return Equals((Product)obj);
         }
 
+        public bool Equals(Product other)
+        {
+            return this.Id == other.Id;
+        }
     }
 }
