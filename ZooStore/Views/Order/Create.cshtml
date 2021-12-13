@@ -1,0 +1,86 @@
+﻿@model Order
+@inject IDepartmentRepository DepartamentRepository
+<div class="all">
+    <div class="menuimg">
+        <img src="/img/pets.png" alt="pets">
+    </div>
+
+    <div class="main">
+        <div class="main1">
+            <span style="font-size: xx-large;"> <b>Замовлення</b> </span>
+        </div>
+    </div>
+    <div class="line"></div>
+</div>
+
+
+<div class="clear"></div>
+<div class="order_wrapper">
+    <form method="post">
+        @for (var i = 0; i < Model.OrderDetails.Count; i++)
+        {
+
+            <div class="order_box">
+                <img src="/upload/@Model.OrderDetails[i].Product.Picture" alt="">
+                <p>@Model.OrderDetails[i].Product.Name</p>
+
+                <div class="order_number">
+
+                    <input hidden asp-for="@Model.OrderDetails[i].Product" value="@Model.OrderDetails[i].Product">
+
+                    <input style="width: 100%;" disabled asp-for="@Model.OrderDetails[i].Quantity" value="@Model.OrderDetails[i].Quantity">
+
+                    <span>@String.Format("{0:f0}", @Model.OrderDetails[i].Product.Price) ₴</span>
+                </div>
+            </div>
+        }
+
+
+        <div class="clear"></div>
+        <div asp-validation-summary="All"></div>
+        <div class="order_info">
+            <div class="order_box2">
+                <span>Дані замовлення</span>
+                <br>
+                <br>
+                <div>
+                    Прізвища отримувача:
+                </div>
+                <input asp-for="LastName">
+                <br>
+                <br>
+                <div>
+                    Ім'я отримувача:
+                </div>
+                <input asp-for="FirstName">
+                <br><br>
+                <div>
+                    Номер телефону:
+                </div>
+                <input asp-for="PhoneNumber">
+                <br>
+                <br>
+                @{
+                    var list = new SelectList(DepartamentRepository.Departments, "Id", "Name");
+                }
+                <div>
+                    Відділення:
+                </div>
+                <select asp-for="Department.Id" asp-items="@list">
+                    <option value=""> --- </option>
+                </select>
+                <br> <br>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+        <div style="text-align: center;">
+            <h2 >@String.Format("{0:f0}", Model.TotalPrice) ₴</h2>
+        </div>
+        <div class="order_footer">
+            <button type="submit">Замовити</button>
+        </div>
+
+        <div class="clear"></div>
+    </form>
+</div>

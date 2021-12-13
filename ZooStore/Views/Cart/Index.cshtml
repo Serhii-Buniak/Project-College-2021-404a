@@ -1,0 +1,74 @@
+﻿@model IList<CartDetails>
+
+@{
+    ViewData["Title"] = "Корзина";
+
+}
+<div class="all">
+    <div class="menuimg">
+        <img src="/img/pets.png" alt="pets">
+    </div>
+
+    <div class="main">
+        <div class="main1">
+            <span style="font-size: xx-large;"> <b>Кошик</b> </span>
+        </div>
+    </div>
+    <div class="line"></div>
+</div>
+
+
+<div class="clear"></div>
+
+<div class="cart_wrapper">
+    @foreach (CartDetails cartDetails in Model)
+    {
+        <form method="get" asp-controller="Order" asp-action="Create">
+            <div class="cart_box">
+                <div class="cart_img-description-wrapper">
+                    <div class="cart_img">
+                        <img src="/upload/@cartDetails.Product.Picture" alt="">
+                    </div>
+                    <div class="cart_description">
+                        <p>@cartDetails.Product.Description</p>
+                    </div>
+                </div>
+                <div>
+                    <p>@cartDetails.Product.Name</p>
+                </div>
+
+                <div class="cart_number">
+
+                    <input hidden name="orderDetails[0].ProductId" value="@cartDetails.Product.Id">
+                    @if (cartDetails.Product.Unique)
+                    {
+                        <input disabled class="orderDetails_Quantity" name="orderDetails[0].Quantity" value="1" type="text" >
+                    }
+                    else
+                    {
+                        <input class="orderDetails_Quantity" name="orderDetails[0].Quantity" value="1" type="text">
+                       
+                    }
+
+                    <span>@String.Format("{0:f0}", cartDetails.Product.Price) ₴</span>
+                </div>
+                <button>Оформити замовлення</button>
+                <a asp-controller="Cart" asp-action="RemoveProduct" asp-route-Id="@cartDetails.Product.Id">Видалити</a>
+            </div>
+        </form>
+    }
+</div>
+<div class="clear"></div>
+<form method="get" asp-controller="Order" asp-action="Create">
+
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        <input hidden name="orderDetails[@i].ProductId" value="@Model[i].Product.Id">
+        <input class="orderDetails-hidden_Quantity" hidden name="orderDetails[@i].Quantity" value="1" type="text">
+    }
+    <div class="card_footer">
+        <button>Купити всі</button>
+    </div>
+
+</form>
+<div class="clear"></div>

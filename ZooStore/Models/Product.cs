@@ -7,10 +7,11 @@ using System.Linq;
 
 namespace ZooStore.Models
 {
-    public class Product
+    public class Product : IEquatable<Product>
     {
         [ScaffoldColumn(false), Key]
-        public Guid Id { get; init; }
+        public long Id { get; init; }
+
         [Required]
         public string Name { get; set; }
 
@@ -18,6 +19,7 @@ namespace ZooStore.Models
         [Column(TypeName = "money")]
         [Required]
         public decimal Price { get; set; }
+
         [Required]
         public string Description { get; set; }
 
@@ -33,6 +35,7 @@ namespace ZooStore.Models
 
         [NotMapped]
         public Category Category => Subcategory.Category;
+        public bool Unique { get; set; }
         public override int GetHashCode()
         {
             return Id.GetHashCode();
@@ -40,8 +43,12 @@ namespace ZooStore.Models
 
         public override bool Equals(object obj)
         {
-            return Id.Equals(((Product)obj).Id);
+            return Equals((Product)obj);
         }
 
+        public bool Equals(Product other)
+        {
+            return this.Id == other.Id;
+        }
     }
 }

@@ -5,7 +5,7 @@
     background-color: #eeeeeeee;
     display: block;
     margin: auto;
-    margin-top: 20px;
+    margin-bottom: 20px;
     width: 40%;
     color: #3f6e89;
     font-weight: 800;
@@ -64,4 +64,7 @@
     margin-bottom: 0px;
     font-size: medium;
     font-weight: 500;
+}
+.sing-up__form{
+    margin-top: 20px;
 }

@@ -6,23 +6,10 @@ using System.Threading.Tasks;
 
 namespace ZooStore.Models.Repositories
 {
-    public interface IReadOnlyRepository<T>
+    public interface IProductRepository
     {
-        IQueryable<T> Items { get; }
-    }
-
-    public interface IProductRepository : IReadOnlyRepository<Product>
-    {
+        IQueryable<Product> Products { get; }
+        Task<Product> FindByIdAsync(long id);
         void Add(Product product);
-    }
-
-    public interface ICategoryRepository : IReadOnlyRepository<Category>
-    {
-        void Add(Category category);
-    }
-
-    public interface ISubcategoryRepository : IReadOnlyRepository<Subcategory>
-    {
-        void Add(Subcategory subcategory);
     }
 }

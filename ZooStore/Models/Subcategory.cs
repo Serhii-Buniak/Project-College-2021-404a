@@ -6,7 +6,7 @@ namespace ZooStore.Models
 {
     public class Subcategory
     {
-        public Guid Id { get; init; }
+        public long Id { get; init; }
         [Required]
         public string Name { get; set; }
         [Required, ForeignKey("CategoryId")]

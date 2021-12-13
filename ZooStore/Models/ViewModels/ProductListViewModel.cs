@@ -8,7 +8,7 @@ namespace ZooStore.Models.ViewModels
     {
         public IEnumerable<Product> Products { get; set; }
         public PagingInfo PagingInfo { get; set; }
-        public Guid? SubcategoryId { get; set; }
+        public long? SubcategoryId { get; set; }
         public SelectList SubcategoriesList { get; set; }
         public SelectList ComparersList { get; set; }
         public string SearchText { get; set; }

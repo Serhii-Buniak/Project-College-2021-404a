@@ -9,54 +9,24 @@ namespace ZooStore.Models.Repositories
 {
     public class EFProductRepository : IProductRepository
     {
-        private readonly StoreDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EFProductRepository(StoreDbContext context)
+        public EFProductRepository(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IQueryable<Product> Items => _context.Products;
+        public IQueryable<Product> Products => _context.Products;
+
 
         public void Add(Product product)
         {
             _context.Products.Add(product);
             _context.SaveChanges();
         }
-    }
 
-    public class EFCategoryRepository : ICategoryRepository
-    {
-        private readonly StoreDbContext _context;
-
-        public EFCategoryRepository(StoreDbContext context)
+        public async Task<Product> FindByIdAsync(long id)
         {
-            _context = context;
-        }
-
-        public IQueryable<Category> Items => _context.Categories;
-
-        public void Add(Category category)
-        {
-            _context.Categories.Add(category);
-            _context.SaveChanges();
-        }
-    }
-
-    public class EFSubcategoryRepository : ISubcategoryRepository
-    {
-        private readonly StoreDbContext _context;
-
-        public EFSubcategoryRepository(StoreDbContext context)
-        {
-            _context = context;
-        }
-
-        public IQueryable<Subcategory> Items => _context.Subcategories;
-
-        public void Add(Subcategory subcategory)
-        {
-            _context.Subcategories.Add(subcategory);
-            _context.SaveChanges();
+            return await _context.Products.FindAsync(id);
         }
     }
 
