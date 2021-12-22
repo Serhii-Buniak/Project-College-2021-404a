@@ -1,10 +1,7 @@
-﻿@model IDictionary<string, IEnumerable<Subcategory>>
-
-@{
+﻿@{
     ViewData["Title"] = "Каталог";
-
 }
-
+@inject ICategoryRepository Categories
 <div class="home__top">
     <div class="all">
         <div class="menuimg">
@@ -48,23 +45,22 @@
 
 <div class="clear"></div>
 <div class="home__catalog">
-
     <div class="home__catalog_title">
         <span>Оберіть підкатегорію</span>
-    </div>
-
-    <div class="home__catalog_box">
-        <span>їжа</span>
-        <a href=""><img src="/home/img/box2.png" alt=""></a>
-    </div>
-        <div class="home__catalog_box">
-        <span>аксесуари</span>
-        <a href=""><img src="/home/img/box3.png" alt=""></a>
     </div>
     <div class="home__catalog_box">
         <span>улюбленці </span>
         <a href=""><img src="/home/img/box1.png" alt=""></a>
     </div>
+    <div class="home__catalog_box">
+        <span>їжа</span>
+        <a href=""><img src="/home/img/box2.png" alt=""></a>
+    </div>
+    <div class="home__catalog_box">
+        <span>аксесуари</span>
+        <a href=""><img src="/home/img/box3.png" alt=""></a>
+    </div>
+
 
 
 </div>
@@ -73,26 +69,28 @@
 
     <div class="clear"></div>
 
-
-    <div class="home__catalog2_box">
-        <span>їжа</span>
-        <div class="home__subcategory "><a class="home__subcategory-a" href=""><img src="/home/img/box2_2.png" alt=""></a></div>
-    </div>
-    <div class="home__catalog2_box">
-        <span>аксесуари</span>
-        <div class="home__subcategory"><a class="home__subcategory-a" href=""><img src="/home/img/box2_3.png" alt=""></a></div>
-    </div>
     <div class="home__catalog2_box">
         <span>улюбленці </span>
         <div class="home__subcategory"><a class="home__subcategory-a" href=""><img src="/home/img/box2_1.png" alt=""></a></div>
     </div>
+    <div class="home__catalog2_box">
+        <span>їжа</span>
+        <div class="home__subcategory "><a class="home__subcategory-a" href=""><img src="/home/img/box2_2.png" alt=""></a></div>
+    </div>
+
+    <div class="home__catalog2_box">
+        <span>аксесуари</span>
+        <div class="home__subcategory"><a class="home__subcategory-a" href=""><img src="/home/img/box2_3.png" alt=""></a></div>
+    </div>
 
     <div class="clear"></div>
-    @foreach (string categoryName in Model.Keys)
+
+
+    @foreach (var category in @Categories.Categories)
     {
         <div class="home_catalog2_menu">
             <ul>
-                @foreach (Subcategory subcategory in Model[categoryName])
+                @foreach (Subcategory subcategory in category.Subcategories)
                 {
                     <li><a asp-action="Search" asp-route-subcategoryId="@subcategory.Id">@subcategory.Name </a></li>
                 }
@@ -100,22 +98,6 @@
         </div>
     }
     <div class="clear"></div>
-    @*    <div class="home_catalog2_menu">
-        <ul>
-        @foreach (var subcategory in Model["Їжа"])
-        {
-        <li><a asp-action="Search" asp-route-subcategoryId="@subcategory.Id">@subcategory.Name </a></li>
-        }
-        </ul>
-        </div>
-        <div class="home_catalog2_menu">
-        <ul>
-        @foreach (var subcategory in Model["Аксесуари"])
-        {
-        <li><a asp-action="Search" asp-route-subcategoryId="@subcategory.Id">@subcategory.Name </a></li>
-        }
-        </ul>
-        </div>*@
 </div>
 
 <div class="clear"></div>

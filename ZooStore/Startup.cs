@@ -32,7 +32,7 @@ namespace ZooStore
             services.AddScoped<IEmailSender, EmailSender>();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                 options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("MyZooStoreContextConnection")));
+                 options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -64,9 +64,9 @@ namespace ZooStore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseDeveloperExceptionPage();
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
             }
             else
@@ -85,13 +85,11 @@ namespace ZooStore
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}");
+                endpoints.MapDefaultControllerRoute();
             });
 
-           // ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
-//SeedData.EnsurePopulated(app);
+            ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
+            SeedData.EnsurePopulated(app);
         }
     }
 }

@@ -42,13 +42,7 @@ namespace ZooStore.Controllers
 
         public IActionResult Index()
         {
-            Dictionary<string, IEnumerable<Subcategory>> dictionary = new();
-
-            foreach (var category in _categoryRepository.Categories)
-            {
-                dictionary.Add(category.Name, category.Subcategories);
-            }
-            return View(dictionary);
+            return View();
         }
 
         [ActionName("Product")]

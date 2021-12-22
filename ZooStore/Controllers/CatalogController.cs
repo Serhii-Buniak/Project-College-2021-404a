@@ -25,7 +25,6 @@ namespace ZooStore.Controllers
             _subcategoryRepository = subcategoryRepository;
             _env = env;
         }
-        public IActionResult Index() => View();
         public IActionResult Create()
         {
             ViewBag.Subcategories = SelectListSubcategories;
@@ -52,7 +51,7 @@ namespace ZooStore.Controllers
                     Subcategory = _subcategoryRepository.Subcategories.First(m => m.Id == model.SubcategoryId)
                 });
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             else
             {
