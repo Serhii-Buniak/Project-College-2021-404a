@@ -72,8 +72,10 @@ namespace ZooStore.Controllers
                 await AddToSearchHistoryAsync(search);
                 products = _searchService.GetSerchedProducts(products, search);
             }
-            if (comparer is not null)
+
+            if (comparer is not null && _productComparers.ContainsKey(comparer))
                 products = products.OrderBy(p => p, _productComparers[comparer]);
+
             decimal? min = default;
             decimal? max = default;
             if (products.Any())

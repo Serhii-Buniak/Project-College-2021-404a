@@ -52,16 +52,11 @@
 .input-validation-error {
     text-align: center;
     color: red;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: x-large;
-    font-weight: 800;
 }
 .input-validation-error-el {
     text-align: center;
     color: red;
-    margin-top: 0px;
-    margin-bottom: 0px;
+
     font-size: medium;
     font-weight: 500;
 }

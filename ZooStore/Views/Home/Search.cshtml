@@ -24,13 +24,13 @@
         <div class="search_select_left">
             <p>категорія</p>
             <select name="subcategoryId" id="subcategoryId" asp-items="Model.SubcategoriesList" class="custom-select">
-                <option value=""> Не обрано </option>
+                <option value="null"> Не обрано </option>
             </select>
         </div>
         <div class="search_select_left" name="comparer">
             <p>сортування</p>
-            <select data-val="true" data-val-required="The SelectedTag field is required." name="comparer" id="comparer" asp-items="Model.ComparersList" class="custom-select">
-                <option value=""> Не обрано </option>
+            <select data-val="true" name="comparer" id="comparer" asp-items="Model.ComparersList" class="custom-select">
+                <option> Не обрано </option>
             </select>
         </div>
         <div class="search_select_left">

@@ -4,6 +4,9 @@
       "type": "secrets",
       "connectionId": "VaultUri"
     },
+    "secrets2": {
+      "type": "secrets"
+    },
     "mssql1": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:DefaultConnection"

@@ -30,9 +30,9 @@ namespace ZooStore
             services.AddSingleton(emailConfig);
 
             services.AddScoped<IEmailSender, EmailSender>();
-
+            var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
-                 options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                 options.UseLazyLoadingProxies().UseSqlServer(connection));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 

@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "secrets2": {
+      "type": "secrets.user"
+    },
     "mssql1": {
       "secretStore": "LocalSecretsFile",
       "type": "mssql.local",

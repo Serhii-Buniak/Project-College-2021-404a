@@ -8,20 +8,19 @@ width: 15%;
 margin-top: 10%;
 float: left;
 }
-.sr_r2 button{
-    width: 60%;
-    float: right;
-    margin-bottom: 5px;
-    margin-top: 15px;
+.authorize{
+
+
+ 
     border: 2px solid #3F6E89;
     padding: 2px;
     border-radius: 15px;
 }
-.sr_r2 button:hover {
+.authorize:hover {
     background-color: #3F6E89;
     color: #eeeeee;
 }
-.sr_r2 span{
+.username{
     display: block;
     font-weight: 600;
     margin-top: 15px;

@@ -18,16 +18,20 @@
     </div>
 
     <div class="sr_r">
-        <a asp-controller="Cart" asp-action="Index"><img src="/img/icons/like.png" alt="favourite"></a>
-        @if (SignInManager.IsSignedIn(User))
-        {
-            <a asp-controller="Account" asp-action="Login"><img src="/img/icons/profile.png" style="background-color: green" alt="me"></a>
-             @User.Identity.Name 
-        }
-        else
-        {
-            <a asp-controller="Account" asp-action="Login"><img src="/img/icons/profile.png" style="background-color: red" alt="me"></a>   
-        }
-      
+   
+            <a asp-controller="Cart" asp-action="Index"><img src="/img/icons/like.png" alt="favourite"></a>
+            @if (SignInManager.IsSignedIn(User))
+            {
+           
+             
+                <span class="username">@User.Identity.Name</span>
+                <a asp-controller="Account" asp-action="Logout" class="authorize">Вийти</a>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Login" class="authorize">Увійти</a>
+                <a asp-controller="Account" asp-action="SingUp" class="authorize">Зареєструватися</a>
+            }
+    
     </div>
 </div>

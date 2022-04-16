@@ -9,9 +9,9 @@ function addProp(){
     div.classList.add('property-element');
     let index = getProperties().length;
     div.innerHTML = 
-    `<label for="Properties_${index}__Key">Key ${index}</label>
+    `<label for="Properties_${index}__Key">Ключ ${index+1}</label>
     <input class="form-control" type="text" data-val="true" data-val-required="The Key field is required." id="Properties_${index}__Key" name="Properties[${index}].Key" value="">
-    <label for="Properties_${index}__Value">Value ${index}</label>
+    <label for="Properties_${index}__Value">Значення ${index+1}</label>
     <input class="form-control" type="text" data-val="true" data-val-required="The Value field is required." id="Properties_${index}__Value" name="Properties[${index}].Value" value="">`;
     blockProperty.append(div);
 
