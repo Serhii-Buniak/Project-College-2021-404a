@@ -13,47 +13,47 @@ Functionality:
 
 *The client receives messages by email
 
-![Db.png](Db.png)
+![Db.png](https://github.com/Serhii-Buniak/Project-College-2021-404a/blob/master/files_for_readme/Db.png)
 
 ## Search by categories, prices 
 ```
 /Home/Search?subcategoryId=4&minPrice=20000&maxPrice=4000000
 ```
-![SearchBy.png](SearchBy.png)
+![SearchBy.png](https://github.com/Serhii-Buniak/Project-College-2021-404a/blob/master/files_for_readme/SearchBy.png)
 
 ## Sort by price 
 ```
 /Home/Search?&comparer=Від+дорогих+до+дешевих
 ```
-![Sorted.png](Sorted.png)
+![Sorted.png](https://github.com/Serhii-Buniak/Project-College-2021-404a/blob/master/files_for_readme/Sorted.png)
 
 ## Authorization and Authentication 
 ```
 /Account/SingUp
 ```
-![Registration.png](Registration.png)
+![Registration.png](https://github.com/Serhii-Buniak/Project-College-2021-404a/blob/master/files_for_readme/Registration.png)
 ```
 /Account/Login
 ```
-![login.png](login.png)
+![login.png](https://github.com/Serhii-Buniak/Project-College-2021-404a/blob/master/files_for_readme/login.png)
 
 
 ## Possibility to add a product to the cart
 ```
 /Cart
 ```
-![cart.png](cart.png)
+![cart.png](https://github.com/Serhii-Buniak/Project-College-2021-404a/blob/master/files_for_readme/cart.png)
 
 ## Possibility to buy goods
 ```
 /Order
 ```
-![order.png](order.png)
+![order.png](https://github.com/Serhii-Buniak/Project-College-2021-404a/blob/master/files_for_readme/order.png)
 
 
 Message on email:
 
-![Message.png](Message.png)
+![Message.png](https://github.com/Serhii-Buniak/Project-College-2021-404a/blob/master/files_for_readme/Message.png)
 
 ## The ability for the admin to add a product
-![createProduct.png](createProduct.png)
+![createProduct.png](https://github.com/Serhii-Buniak/Project-College-2021-404a/blob/master/files_for_readme/createProduct.png)
